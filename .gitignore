@@ -1,0 +1,23 @@
+# Database
+db.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+env/
+
+# PyCharm
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# oTree compiled files
+*.otreezip
+
+# Logs
+*.log
