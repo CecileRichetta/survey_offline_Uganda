@@ -1,0 +1,122 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .progress-text {
+                text-align: right;
+                color: grey;
+                font-size: 11px;
+                width: 100%;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                color: #333;
+                background-color: white;
+            }
+            h1 {
+                text-align: center;
+                color: #2c3e50;
+            }
+            h2 {
+                color: #2980b9;
+            }
+            p {
+                margin: 10px 0;
+                text-align: justify;
+            }
+            .quote {
+                font-style: italic;
+                border-left: 4px solid #2980b9;
+                padding-left: 10px;
+                margin: 15px 0;
+                color: #34495e;
+            }
+            .unhrc-logo {
+                display: block;
+                margin: 0 auto 20px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .report-container {
+                background-color: #F0F0F0;
+                border-radius: 8px;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            .btn-primary {
+                background-color: #0d6efd;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .btn-primary:hover {
+                background-color: #0b5ed7;
+            }
+        </style>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text">
+            Questionnaire progress: 4/11
+        </p>
+{{ endblock }}
+
+
+{{ block content }}
+    <body>
+        <p>
+            <h5>
+Please read the summary of the report from the United Nations Human Rights Council carefully.            </h5>
+            <br><br>
+        </p>
+
+        <div class="report-container">
+            <img src="{{ static C.IMAGE_UNHRC }}" class="unhrc-logo" alt="UNHRC Logo">
+            <h1>United Nations Human Rights Council Report</h1><br>
+            <h2>Opportunities for Peace and Reconciliation in Uganda</h2><br>
+            <h5>
+                <p>
+                    According to the latest report published by the United Nations Human Rights Council, the people of Uganda have a real opportunity to achieve social reconciliation in Northern Uganda. Recent years have seen communities, once torn apart by conflict, begin to rebuild their trust and create a shared future. In one town, former fighters and local citizens have come together to build homes and schools, transforming what was originally a landscape of division into a place of unity. This transformation is one of many across the country that demonstrate how peace is no longer distant but already unfolding.
+                </p>
+                <p>
+                    Surveys and studies confirm that reconciliation efforts are having a profound impact on the healing of local society. Former combatants, once seen as the source of conflict, are now reentering communities not as outsiders, but as valued contributors, playing a significant role in rebuilding the very towns that were once affected by the conflict. With the support of international peace organizations, these efforts continue to grow, providing clear evidence that lasting peace is within reach. It is hard to overlook the positive momentum across the country, and it becomes clear that the people of Uganda are capable of creating the peaceful future they have longed for.
+                </p>
+                <p class="quote">
+                    The head of the UNHRC noted that "Uganda has the resources and determination to ensure peace takes root. Every day, we see more signs that reconciliation is moving from an ideal to a reality."
+                </p>
+                <p>
+                    This unwavering commitment of the population, alongside growing international support, points to a future where peace is not just a distant hope but a tangible reality, one that is already taking shape.
+                </p>
+
+    </h5>
+    </div>
+</body>
+    <p>
+        <br><br>
+        <h5>
+          {{ formfields }}
+    </h5>
+
+    </p>
+
+
+<p class="text-center">
+    <button class="btn-primary">
+        NEXT
+    </button>
+</p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}
+
+

@@ -1,0 +1,123 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .progress-text {
+                text-align: right;
+                color: grey;
+                font-size: 11px;
+                width: 100%;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                color: #333;
+                background-color: white;
+            }
+            h1 {
+                text-align: center;
+                color: #2c3e50;
+            }
+            h2 {
+                color: #2980b9;
+            }
+            p {
+                margin: 10px 0;
+                text-align: justify;
+            }
+            .quote {
+                font-style: italic;
+                border-left: 4px solid #2980b9;
+                padding-left: 10px;
+                margin: 15px 0;
+                color: #34495e;
+            }
+            .unhrc-logo {
+                display: block;
+                margin: 0 auto 20px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .report-container {
+                background-color: #F0F0F0;
+                border-radius: 8px;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            .btn-primary {
+                background-color: #0d6efd;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .btn-primary:hover {
+                background-color: #0b5ed7;
+            }
+        </style>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text">
+            Questionnaire progress: 4/11
+        </p>
+{{ endblock }}
+
+
+{{ block content }}
+    <body>
+        <p>
+            <h5>
+                Bambi soma nobwegendereza alipoota mu bufunze eva mu kibiina ky'amawanga amagatte ekwata kubddembe ly'obuntu
+            </h5>
+            <br><br>
+        </p>
+
+        <div class="report-container">
+            <img src="{{ static C.IMAGE_UNHRC }}" class="unhrc-logo" alt="UNHRC Logo">
+            <h1>United Nations Human Rights Council Report</h1><br>
+            <h2>Omukisa ggwe mirembe n'okusonyiwagana mu Uganda</h2><br>
+            <h5>
+                <p>
+                    Okusinziira ku alipoota eyakafulumizibwa akakiiko ke ddembe ly'obuntu, abantu mu Uganda balina omukisa ogwa namaddala okufuna okutabagana mu mambuka ga Uganda. Mu myaka ejja kayita abantu mu bitundu ebyo abataggulwa obukubagano, batandise okwezimba bupya, obwesigwa n'okutondawo enkolagana ey'omumaaso eya bonna. Mu kabuga akamu, abaali abalwanyi n'abatuuze ababulijjo begasse wamu okuzimba webabeera na masomero, okukyuusa mukusooka ekya ettaka lyenjawukana nga lidda kiffo eky'emirembe. Okweyubula kunno yemu kungeri enyingi okwetolola eggwanga eziraga eddembe bweritali wala  wabula okubeera nga lyeyoleka.
+                </p>
+                <p>
+                    Okunonyereza n'emisomo bikakasa nti amanyi agatereddwa mu kusonyiwagana bilina omugaso munene mukutereera kwa abantu be bitundu ebyo. Abaali abalwanyi abalabwa nga ensibuko y'obutabanguko kati baddayo mu bantu baabwe si nga abajjaasi naye nga abantu abayambako, nga bakola omulimo ggw'okuddamu okuzimba  buli kabuga ebyakosebwa olw'obukubagano. Nga bayambibwako ebitongole bye mirembe  mu nsi yonna, Enkola zino zikuzizza, nokuwa obulungi obujjulizi nti eddembe oly'oluberera lili kumpi. Kizibu okubuusa amaaso embeera ennungi okwetoloora eggwanga, era kiba kirungi nti abantu ba Uganda balina obusobozi okutekawo ebiseera mirembe eby'omumaaso byebayayanira.
+                </p>
+                <p class="quote">
+                    Omukulembeze wa UNHRC yalaga nti “Uganda erina ebirungo n’obusobozi okuleetera emirembe okunyuka. Bulijo tulaba obubonero nti okutegeeragana kuyinza okufuuka amazima mu butuufu.”
+                </p>
+                <p>
+                    Obweyamo buno obutakyuka okuva mu bantu, wamu n’obuyambi okuva mu nsi yonna, bulaga nti eby’emirembe si kyeyagalirwa kyokka wabula ekintu eky’amaanyi ekiri mu kukulaakulana.
+                </p>
+
+    </h5>
+    </div>
+</body>
+    <p>
+        <br><br>
+        <h5>
+          {{ formfields }}
+    </h5>
+
+    </p>
+
+
+<p class="text-center">
+    <button class="btn-primary">
+        NEXT
+    </button>
+</p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}
+
+

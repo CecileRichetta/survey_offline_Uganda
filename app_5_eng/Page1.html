@@ -1,0 +1,53 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+    </style>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 5/11
+        </p>
+    {{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Next task</b>
+    </h3>
+    <h5>
+        In this section, you will be asked to make two decisions in two different scenarios.
+        Each scenario reflects an interaction between you and another participant, whose name you don't know.
+        Each token you receive at the end of the task will be converted into Ugandan shilling at the end of the survey.
+        We will keep your and the other participant's personal information strictly confidential.    </h5>
+<p class="text-center">
+    <button class="btn-primary">
+        NEXT
+    </button>
+</p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

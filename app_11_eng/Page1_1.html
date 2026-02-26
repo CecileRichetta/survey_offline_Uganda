@@ -1,0 +1,143 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 12/11
+        </p>
+{{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Participation in the next survey</b>
+    </h3>
+
+    <h5>
+        <p>
+            {{ formfields }}
+        </p>
+    </h5>
+
+<script>
+    // Polyfill for closest() for older browsers
+    if (!Element.prototype.closest) {
+        Element.prototype.closest = function(s) {
+            var el = this;
+            do {
+                if (el.matches && el.matches(s)) return el;
+                el = el.parentElement || el.parentNode;
+            } while (el !== null && el.nodeType === 1);
+            return null;
+        };
+    }
+
+    // Polyfill for matches() for older browsers
+    if (!Element.prototype.matches) {
+        Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+    }
+
+    // Function to find and hide field by label text
+    function hideFieldByLabel(fieldName, labelTextPart) {
+        var labels = document.querySelectorAll('label');
+        for (var i = 0; i < labels.length; i++) {
+            var label = labels[i];
+            if (label.textContent.indexOf(labelTextPart) !== -1) {
+                var parent = label.parentElement;
+                var attempts = 0;
+                while (parent && parent !== document.body && attempts < 10) {
+                    var field = parent.querySelector('input[name="' + fieldName + '"], select[name="' + fieldName + '"], textarea[name="' + fieldName + '"]');
+                    if (field) {
+                        parent.style.display = 'none';
+                        parent.setAttribute('data-conditional-field', fieldName);
+                        break;
+                    }
+                    parent = parent.parentElement;
+                    attempts++;
+                }
+                if (parent && parent.getAttribute('data-conditional-field')) break;
+            }
+        }
+    }
+
+
+    // Function to toggle recall fields based on recall_firstwave selection
+    function toggleRecallFields() {
+        var recallRadios = document.querySelectorAll('input[name="recall_firstwave"]');
+        var phone2Container = document.querySelector('[data-conditional-field="recall_phone2"]');
+        var phone3Container = document.querySelector('[data-conditional-field="recall_phone3"]');
+
+        if (!phone2Container || !phone3Container ) {
+            return;
+        }
+
+        // Check initial state
+        var selectedRadio = document.querySelector('input[name="recall_firstwave"]:checked');
+        if (selectedRadio && selectedRadio.value === 'True') {
+            phone2Container.style.display = '';
+            phone3Container.style.display = '';
+        } else {
+            phone2Container.style.display = 'none';
+            phone3Container.style.display = 'none';
+        }
+
+        // Add event listeners
+        for (var i = 0; i < recallRadios.length; i++) {
+            recallRadios[i].addEventListener('change', function() {
+                if (this.value === 'True') {
+                    phone2Container.style.display = '';
+                    phone3Container.style.display = '';
+                } else {
+                    phone2Container.style.display = 'none';
+                    phone3Container.style.display = 'none';
+                }
+            });
+        }
+    }
+
+    // First hide all conditional fields and mark them
+    hideFieldByLabel('recall_phone2', '12.3.');
+    hideFieldByLabel('recall_phone3', '12.4.');
+
+    // Then set up the toggles
+    toggleRecallFields();
+</script>
+
+    <p class="text-center">
+        <button class="btn btn-primary">
+            NEXT
+        </button>
+    </p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

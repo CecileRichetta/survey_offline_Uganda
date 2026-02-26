@@ -1,0 +1,69 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 12/11
+        </p>
+{{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Cul me agiki me tic atima</b>
+    </h3>
+    <h5>
+    <p>
+        Me keto jami weng, inongo:
+        <li>  Mic {{ participant.vars.payoff_UG }} ki ituku me acel ileyo tam me acel </li>
+        <li>  Mic {{ participant.vars.payoff_PG }} ki ituku me aryo ileyo tam me acel </li>
+        <li>  Mic {{ participant.vars.payoff_UG }} ki ituku me acel me leyo tam matin ni</li>
+        <li>  Mic {{ participant.vars.payoff_PG }} ki ituku me aryo ileyo tam me acel </li>
+        <br>
+        N Dong kit meno, itye ki wel mic weng {{ participant.vars.total_payoff_token }} ki itic atima weng pi dul lapeny aryo ni.
+        Kom mic acel acel wele tye ciling 2500.
+        Man nongo tye ciling {{ participant.vars.total_payoff_money }}
+    </p>
+
+        {{ formfields }}
+
+    </h5>
+
+    <p class="text-center">
+        <button class="btn btn-primary">
+            NEXT
+        </button>
+    </p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

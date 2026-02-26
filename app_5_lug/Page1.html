@@ -1,0 +1,56 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+    </style>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 5/11
+        </p>
+    {{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Activities to come</b>
+    </h3>
+    <h5>
+      Mu kitundu ekiddako, ogenda kusabibwa okukola okusalawo ku bintu ebyenjawulo birbiri. Buli kyakulabirako kilaga enkolagana
+        wakati wo neyetabyeemu omulala nga erinnya lye tolimanyi . Buli kasiimo kofuna ku nkomerero ya kino kajja kukyusibwa mu
+        ssente za Uganda kakuweebwe mu kubuzibwa okwokubiri. Mungeri yeemu, N'emunno naye ajja kufuna akasiimo akajja okukyusibwa
+        mu ssente za Uganda. Tujja kuuma erinnya lyo n'oli eyetabyeemu nga byakyaama nnyo.
+    </h5>
+
+
+<p class="text-center">
+    <button class="btn-primary">
+        NEXT
+    </button>
+</p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

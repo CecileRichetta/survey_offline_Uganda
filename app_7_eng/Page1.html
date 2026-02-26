@@ -1,0 +1,70 @@
+{{ block scripts }}
+    <html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+{{ endblock }}
+
+{{ block style }}
+    <style>
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 7/11
+        </p>
+{{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Relations with others</b>
+    </h3>
+<h5>
+    <p>
+        {{ if participant.vars.group == 0 }}
+            {{ formfield 'empathy_6' label="7.2. How much do you agree with the following statement: I find myself moved by the accounts of suffering by Bagandas from Central Uganda.(Enumetaror Note: Pse readout options out loud)"}}
+            {{ formfield 'guilt_1' label="7.3. How much do you agree with the following statement: I sometimes feel guilty, for what Northerners have done to Bagandas from Central Uganda during the conflict.(Enumetaror Note: Pse readout options out loud)" }}
+            {{ formfield 'anger_2' label="7.4. How much do you agree with the following statement: Thinking about how Northerners people have treated Bagandas from Central Uganda makes me feel angry.(Enumetaror Note: Pse readout options out loud)" }}
+            {{ formfield 'fear_1' label="7.5. How much do you agree with the following statement: I feel fear from Bagandas from Central Uganda's actions. (Enumetaror Note: Pse readout options out loud)" }}
+        {{ elif participant.vars.group == 1 }}
+            {{ formfield 'empathy_6' label="7.2. How much do you agree with the following statement: I find myself moved by the accounts of suffering by Northerners.(Enumetaror Note: Pse readout options out loud)" }}
+            {{ formfield 'guilt_1' label="7.3. 7.3. How much do you agree with the following statement: I sometimes feel guilty, for what Bagandas from Central Uganda have done to Northerners during the conflict (Enumetaror Note: Pse readout options out loud)" }}
+            {{ formfield 'anger_2' label="7.4. How much do you agree with the following statement: Thinking about how Bagandas from Central Uganda have treated Northerners makes me feel angry.(Enumetaror Note: Pse readout options out loud)" }}
+            {{ formfield 'fear_1' label="7.5. How much do you agree with the following statement: I feel fear from Northerners' actions.(Enumetaror Note: Pse readout options out loud)" }}
+        {{ endif }}
+    </p>
+</h5>
+    <p class="text-center">
+        <button class="btn btn-primary">
+            NEXT
+        </button>
+    </p>
+{{ endblock }}
+
+{{ block options }}
+    </html>
+{{ endblock }}

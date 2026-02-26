@@ -1,0 +1,115 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .example-container {
+            margin-bottom: 20px;
+            border: 1px solid #ccc; /* Bordure grise */
+            border-radius: 8px; /* Coins arrondis */
+            padding: 15px; /* Espace entre la bordure et le contenu */
+            /* background-color: #f9f9f9; /* Optionnel: fond légèrement grisé */
+            justify-content: center; /* Align horizontal */
+            align-items: center; /* Align vertical */
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .example-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .example-image {
+            width: 100%;
+            height: auto;
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+{{ endblock }}
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 6/11
+        </p>
+{{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Second task</b>
+    </h3>
+    <h5>
+    <p>
+    {{ include C.TEMPLATE_INSTRUCTIONS_PG }}
+    </p>
+
+    <!-- Example 1 -->
+<div class="example-container row">
+    <div class="example-title">
+        Ekigezo ekisooka wansi kino kiraga engeri omulimu gye gukolebwaamu:</div>
+    <div class="col-md-4">
+        <img src="{{ static C.IMAGE_PG_EXAMPLE1 }}" class="img-fluid example-image">
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h5>
+                Muky'okulabirako kino ekisooka, bombi omuntu owa color ya kilagala ne owa kakobe  balina obisiimo 4
+        obwokutandika nabwo. Omuntu alina color ya kiragala asalawo ayagala kweterekera obusiimo bwonna and aleme kuteeka
+        kintu kyonna ku nsawo eya bulijjo. Omuntu alina kkala ya kakobe asalawo okuteeka obusiimo 2 mu nsawo eya bulijjo. Nolwekyo, waliwo obusiimo 2 mu nsawo.
+                Akola binno(omuntu owa kkala ya grey) agatta amakkati g'omuwendo gunno:bagattako akasiimo kamu, era kati
+        buli obusiimo 3 munsawo. Bunno bugabanyizibwamu ebitundu 2 kyenkanyi wakati. kkala  yakiragala ne kkala ya kakobe, kale buli omu afuna akasiimo kamu n'ekitundu.
+                N'olwekyo, ku nkomerero owa kkala ya kiragala alina obusiimo butaano ne kitundu n'omuntu alina kkala ya kakobe alina busatu n'ekitundu. "
+    </h5>
+</p>
+    </div>
+</div>
+<br>
+<!-- Example 2 -->
+
+<div class="example-container row">
+    <div class="example-title">Ekigezo eky’okubiri kino kiraga engeri omulimu gye gukolebwaamu:</div>
+    <div class="col-md-4">
+        <img src="{{ static C.IMAGE_PG_EXAMPLE2 }}" class="img-fluid example-image">
+    </div>
+    <div class="col-md-4">
+        <p>Mu kyokulabirako kinno ekyokubiri, bombi omuntu Alina kkala kiragala ne kakobe balina obusiimo 4 Nate obwokutandika
+            nabwo, basalawo akutekayo obusiimo bwabwe bwonna mu nsawo. Nolwekyo, Waliyo obusiimo 8 mu nsawo. Abakozesa kino
+            agaattako amakati g'omuwendo gunno, bwe busiimo 4. Buli obusiimo 12 mu nsawo. Bunno bugabanyizibwamu ebitundu bibiri
+            ebyenkanankana obwa kkala kiragala ne ne kakobe: Bwombi buli omu afuna obusiimo 6.
+            Nolwekyo ku nkomerero bombi balina obusiimo 6.</p><br><br>
+    </div>
+</div>
+                <b>Bambi laga  nti sitatimenti zinno ntuufu oba nkyaamu: </b>
+            {{ formfields }}
+
+    </p>
+    </h5>
+    <p class="text-center">
+        <button class="btn btn-primary">
+            NEXT
+        </button>
+    </p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

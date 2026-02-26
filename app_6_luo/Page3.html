@@ -1,0 +1,108 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .example-container {
+            margin-bottom: 20px;
+            border: 1px solid #ccc; /* Bordure grise */
+            border-radius: 8px; /* Coins arrondis */
+            padding: 15px; /* Espace entre la bordure et le contenu */
+            /* background-color: #f9f9f9; /* Optionnel: fond légèrement grisé */
+            justify-content: center; /* Align horizontal */
+            align-items: center; /* Align vertical */
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .example-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .example-image {
+            width: 100%;
+            height: auto;
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+{{ endblock }}
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 6/11
+        </p>
+{{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Second task</b>
+    </h3>
+    <h5>
+    <p>
+    {{ include C.TEMPLATE_INSTRUCTIONS_PG }}
+    </p>
+
+    <!-- Example 1 -->
+<div class="example-container row">
+    <div class="example-title">
+        Labol me acel mapiny eni nyutu tic atima ni</div>
+    <div class="col-md-4">
+        <img src="{{ static C.IMAGE_PG_EXAMPLE1 }}" class="img-fluid example-image">
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h5>
+                 Iyi labol me acaki man, Ngat ma oruku green ki ngat ma oruku purple weng tye ki mic angwen me cako tuku. Ngat ma oruku green ni omoko tame ni imito gwoko micm mamege weng  ma en pe keto gin mo keken iyi kicaa alwak. Ngat ma oruku purpleni, omoko tame me keto mic aryo iyi kicaa alwak. Dong kit meno, mic tye aryo iyi kicaa.
+                                                                                                                                   Lapim tuku man ka tiyo ( ngat ma oruku grey) medo nucu pa wel man: Gin omedo mic acel, ci kombedi dong mic tye adek iyi kicaa. Mic magi kipoko marom  ikin ngat ma oruku green ki ngat ma oruku purple, tyen loke ni ngat acel acel nongo mic acel ki nucu.
+        Dong kit meno, iyi agikine ngat ma oruku green nibedo ki mic 5.5 ki ngat ma oruku purple tye ki mic 3.5.
+    </h5>
+</p>
+    </div>
+</div>
+<br>
+<!-- Example 2 -->
+
+<div class="example-container row">
+    <div class="example-title">Labol me aryo ma piny eni nyutu tic atima:</div>
+    <div class="col-md-4">
+        <img src="{{ static C.IMAGE_PG_EXAMPLE2 }}" class="img-fluid example-image">
+    </div>
+    <div class="col-md-4">
+        <p>I labol me aryo man, Ngat ma oruku green ki ngat ma oruku purple weng gitye ki mic angwen me cako tuku. Gin  aryo weng gumoko tam gi me keto mic giweng iyi kicaa alwak. Dong kit meno,mic tye aboro i kicaa alwak. Langol tuku  medo nucu pa wel man, tyen loki ni mic angwen.                                                                                                            Kombedi dong no tye mic 12 i kicaa. Mic magi kipoko marom ikin ngat ma oruku green ki ngat ma oruku purple: Ngat acel acel nongo mic abicel. Pi man, iyi agiki gin aryo weng gitye ki mic abicel.
+    </div>
+</div>
+        <b>Timber inyut kace lok magi tye ada onyo pe: </b>
+            {{ formfields }}
+
+    </p>
+    </h5>
+    <p class="text-center">
+        <button class="btn btn-primary">
+            NEXT
+        </button>
+    </p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

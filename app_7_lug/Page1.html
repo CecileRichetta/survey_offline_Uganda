@@ -1,0 +1,70 @@
+{{ block scripts }}
+    <html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+{{ endblock }}
+
+{{ block style }}
+    <style>
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 7/11
+        </p>
+{{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Relations with others</b>
+    </h3>
+<h5>
+    <p>
+        {{ if participant.vars.group == 0 }}
+            {{ formfield 'empathy_6' label="7.2. Okiriziganya kyenkana kyi ne sitatimenti zinno wamanga : N'esaanga nga nterebuka nebiva mu kubonabona kwa abaganda abava mu massekkati ga Uganda. (Enumetaror Note: Pse readout options out loud)"}}
+            {{ formfield 'guilt_1' label="7.3. Okiriziganya kyenkana kyi ne sitatimenti zinno wamanga: Ebiseera ebimu mpulira kinumiriza, kulwa abava mambuka byebakoze ku baganda abava mu massekati ga Uganda mu biseera byobutabanguko. (Enumetaror Note: Pse readout options out loud)" }}
+            {{ formfield 'anger_2' label="7.4. Okiriziganya kyenkana kyi ne sitatimenti zinno wamanga: Bwendowooza ab'omumambuaka ga uganda bwebayisa a baganda abava mu massekati Uganda kindetera okunyiiga (Enumetaror Note: Pse readout options out loud)" }}
+            {{ formfield 'fear_1' label="7.5. Okiriziganya kyenkana kyi ne sitatimenti zinno wamanga: Mpulira ntya ebikolwa abyabaganda abava mu massekati ga Uganda." }}
+        {{ elif participant.vars.group == 1 }}
+            {{ formfield 'empathy_6' label="7.2. Okiriziganya kyenkana kyi ne sitatimenti zinno wamanga : N'esaanga nga nterebuka nebiva mu kubonabona kwa  abava mu mambuka. (Enumetaror Note: Pse readout options out loud)" }}
+            {{ formfield 'guilt_1' label="7.3. Okiriziganya kyenkana kyi ne sitatimenti zinno wamanga: Ebiseera ebimu mpulira kinumiriza, kulwa baganda abava massekati gabUganda byebakoze ob'omumambuka ga Uganda mu biseera byobutabanguko. (Enumetaror Note: Pse readout options out loud)" }}
+            {{ formfield 'anger_2' label="7.4. Okiriziganya kyenkana kyi ne sitatimenti zinno wamanga:Bwendowooza ku baganda abava mu massekati ga Uganda bwebayisa abava mu mambuka kyinyiiza. (Enumetaror Note: Pse readout options out loud)" }}
+            {{ formfield 'fear_1' label="7.5. Okiriziganya kyenkana kyi ne sitatimenti zinno wamanga: Mpulira ntya ebikolwa abyaba bava mu mambuka." }}
+        {{ endif }}
+    </p>
+</h5>
+    <p class="text-center">
+        <button class="btn btn-primary">
+            NEXT
+        </button>
+    </p>
+{{ endblock }}
+
+{{ block options }}
+    </html>
+{{ endblock }}

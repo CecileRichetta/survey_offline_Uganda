@@ -1,0 +1,117 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const toggles = [
+              { buttonId: 'toggle-proposer-btn', contentId: 'instructions-ultimatum-proposer' },
+              { buttonId: 'toggle-receiver-btn', contentId: 'instructions-ultimatum-receiver' }
+          ];
+
+          toggles.forEach(({ buttonId, contentId }) => {
+              const btn = document.getElementById(buttonId);
+              const content = document.getElementById(contentId);
+
+              if (btn && content) {
+                  btn.addEventListener('click', () => {
+                      content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+                  });
+                  // Initialize hidden
+                  content.style.display = 'none';
+              }
+          });
+      });
+    </script>
+</head>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 5/11
+        </p>
+{{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Results from First Task</b>
+    </h3>
+<h5>
+    {{ if participant.vars.side_ultimatum == 0}}
+
+    <p>
+        Mu mulimu ogusooka, wawaayo {{ participant.vars.decision_UG }} obubonero eri omuntu omulala. <br>
+        Wasangiddwa n’omuntu eyalanga nti tayinza kukkiriza wansi wa {{ participant.vars.other_UG_decision }} obubonero okuva mu muntu omulala. <br>
+        Kale, ng’okusinzira ku mateeka g’omulimu, empeera yo mu mulimu ogusooka ye {{ participant.vars.payoff_UG }} obubonero.  <br>
+   </p>
+
+        <!-- For Ultimatum Game Instructions -->
+    <button type="button" class="btn btn-outline-primary" id="toggle-proposer-btn">
+      Show / Hide Instructions
+    </button>
+    <div id="instructions-ultimatum-proposer">
+        {{ include C.TEMPLATE_INSTRUCTIONS_ULTIMATUM_PROPOSER }}
+    </div>
+
+
+    {{ elif participant.vars.side_ultimatum == 1}}
+
+    <p>
+        Mu mulimu ogusooka, walaga nti oyagala kufuna obubonero obutawansi bwa {{ participant.vars.decision_UG }} okuva mu munne. <br>
+        Wasangiddwa n’omuntu eyalanga nti yaakusindika {{ participant.vars.other_UG_decision }} obubonero. <br>
+        Kale, ng’okusinzira ku mateeka g’omulimu, empeera yo ey’enkomerero mu mulimu ogusooka ye {{ participant.vars.payoff_UG }} obubonero. <br>
+   </p>
+
+    <!-- For Ultimatum Game Instructions -->
+<button type="button" class="btn btn-outline-primary" id="toggle-receiver-btn">
+  Show / Hide Instructions
+</button>
+<div id="instructions-ultimatum-receiver">
+    {{ include C.TEMPLATE_INSTRUCTIONS_ULTIMATUM_RECEIVER }}
+</div>
+
+
+
+    {{ endif}}
+</h5>
+    <p class="text-center">
+        <button class="btn btn-primary">
+            NEXT
+        </button>
+    </p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

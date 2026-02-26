@@ -1,0 +1,75 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 2/11
+        </p>
+{{ endblock }}
+
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>General information</b>
+    </h3>
+<h5>
+     {{ if participant.vars.group == 0 }}
+        {{ formfield 'group_attachment_1' label="2.10.1. Okiriziganya kyenkana kyi ne sitatimenti zinno wamanga: Mpulira enkwatagana yamaanyi n'abantu b'omu Acholi abasibuka mu mambuka ga Uganda (Enumetaror Note: Pse readout options out loud)" }}
+        {{ formfield 'group_attachment_2' label="2.11.1. Okiriziganya kyenkana kyi ne sitetinenti eno wamanga: Newulira bulijjo netwala okubeera omucholi ava mu mambuka ga Uganda. (Enumetaror Note: Pse readout options out loud)" }}
+        {{ formfield 'venn_1' label="2.12.1. TRANSLATION" }}
+    {{ elif participant.vars.group == 1 }}
+    {{ formfield 'group_attachment_1' label="2.10.2. Okiriziganya kyenkana kyi ne sitatimenti eno wamanga: Mpulira enkwatagana yamaanyi n'abantu abaganda abasibuka mu maserengeta ga Uganda (Enumetaror Note: Pse readout options out loud)" }}
+    {{ formfield 'group_attachment_2' label="2.11.2. Okiriziganya kyenkana kyi ne sitetimenti eno wamanga: Newulielira bulijjo netwala okubeera omuganda ava mu maserengeta ga Uganda (Enumetaror Note: Pse readout options out loud)" }}
+       {{ formfield 'venn_1' label="2.12.2. TRANSLATION" }}
+    {{ endif }}
+
+    <img src="{{ static C.VENN_LUGANDA }}" class="venn-diagram" alt="Venn diagram">
+
+
+</h5>
+
+<p class="text-center">
+    <button class="btn-primary">
+        NEXT
+    </button>
+</p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

@@ -1,0 +1,69 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{{ endblock }}
+
+{{ block style }}
+    <style>
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 8/11
+        </p>
+{{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Relations with others</b>
+    </h3>
+    <h5>
+       <p>
+        {{ if participant.vars.group == 0 }}
+            {{ formfield 'outgroup_trust_3' label="8.8. Bambi mbulira okiriziganya oba tokiriziganya ne sitatimenti zinno wamanga: Abantu abasiinga  abaganda abava mu masekkati ga Uganda tekigendererwa kubuzabuzibwa." }}
+            {{ formfield 'outgroup_trust_4' label="8.9. Bambi mbulira okiriziganya oba tokiriziganya ne sitatimenti zinno wamanga: Abantu abasiinga  abaganda abava mu masekkati ga Uganda tebesigika kutukiriza bisubizo byaabwe." }}
+            {{ formfield 'outgroup_trust_7' label="8.10. Bambi mbulira okiriziganya oba tokiriziganya ne sitatimenti zinno wamanga: Abantu abasiinga  abaganda abava mu masekkati ga Uganda bantu balungi." }}
+        {{ elif participant.vars.group == 1 }}
+            {{ formfield 'outgroup_trust_3' label="8.8. Bambi mbulira okiriziganya oba tokiriziganya ne sitatimenti zinno wamanga: Abava mu mambuka tekigenderwa ku kubuzabuzibwa." }}
+            {{ formfield 'outgroup_trust_4' label="8.9. Bambi mbulira okiriziganya oba tokiriziganya ne sitatimenti zinno wamanga: Abantu abasiinga abava mu mu mambuka tebesigika kutukiriza bisubizo byaabwe." }}
+            {{ formfield 'outgroup_trust_7' label="8.10. Bambi mbulira okiriziganya oba tokiriziganya ne sitatimenti zinno wamanga: Abantu abasiinga  abava mu mambuka bantu balungi." }}
+       {{ endif }}
+    </p>
+    </h5>
+
+
+    <p class="text-center">
+        <button class="btn btn-primary">
+            NEXT
+        </button>
+    </p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

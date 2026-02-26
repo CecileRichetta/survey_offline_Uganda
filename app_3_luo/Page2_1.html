@@ -1,0 +1,151 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 3/11
+        </p>
+{{ endblock }}
+
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>General information</b>
+    </h3>
+<h5>
+    {{ formfields }}
+
+<script>
+    // Polyfill for closest() for older browsers
+    if (!Element.prototype.closest) {
+        Element.prototype.closest = function(s) {
+            var el = this;
+            do {
+                if (el.matches && el.matches(s)) return el;
+                el = el.parentElement || el.parentNode;
+            } while (el !== null && el.nodeType === 1);
+            return null;
+        };
+    }
+
+    if (!Element.prototype.matches) {
+        Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        function hideFieldByLabel(fieldName, labelTextPart) {
+            var labels = document.querySelectorAll('label');
+            for (var i = 0; i < labels.length; i++) {
+                var label = labels[i];
+                if (label.textContent.indexOf(labelTextPart) !== -1) {
+                    var container = label.closest('div, tr, p');
+                    if (!container) container = label.parentElement;
+                    var attempts = 0;
+                    while (container && container !== document.body && attempts < 10) {
+                        var field = container.querySelector('input[name="' + fieldName + '"], select[name="' + fieldName + '"]');
+                        if (field) {
+                            container.style.display = 'none';
+                            container.setAttribute('data-conditional-field', fieldName);
+                            break;
+                        }
+                        container = container.parentElement;
+                        attempts++;
+                    }
+                    if (container && container.getAttribute('data-conditional-field')) break;
+                }
+            }
+        }
+
+
+        function toggleSecondDeploymentFields() {
+            var deploymentRadios = document.querySelectorAll('input[name="deployment_second"]');
+            var provinceContainer = document.querySelector('[data-conditional-field="military_province_second"]');
+            var provinceotherContainer = document.querySelector('[data-conditional-field="military_province_second_other"]');
+            var yearContainer = document.querySelector('[data-conditional-field="seconddeployment_start_year"]');
+            var monthContainer = document.querySelector('[data-conditional-field="seconddeployment_start_month"]');
+            var lengthContainer = document.querySelector('[data-conditional-field="seconddeployment_length"]');
+            var lengthunitContainer = document.querySelector('[data-conditional-field="seconddeployment_length_unit"]');
+
+            if (!provinceContainer || !provinceotherContainer || !yearContainer || !monthContainer || !lengthContainer || !lengthunitContainer) return;
+
+            function updateVisibility(value) {
+                var show = (value === '1');
+                provinceContainer.style.display = show ? '' : 'none';
+                provinceotherContainer.style.display = show ? '' : 'none';
+                yearContainer.style.display = show ? '' : 'none';
+                monthContainer.style.display = show ? '' : 'none';
+                lengthContainer.style.display = show ? '' : 'none';
+                lengthunitContainer.style.display = show ? '' : 'none';
+            }
+
+            var selectedRadio = document.querySelector('input[name="deployment_second"]:checked');
+            updateVisibility(selectedRadio ? selectedRadio.value : '');
+
+            for (var i = 0; i < deploymentRadios.length; i++) {
+                deploymentRadios[i].addEventListener('change', function() {
+                    updateVisibility(this.value);
+                });
+            }
+        }
+
+        // Hide fields first, then set up toggles
+        hideFieldByLabel('military_province_second', '3.2.8.');
+        hideFieldByLabel('military_province_second_other', '3.2.8.1.');
+        hideFieldByLabel('seconddeployment_start_year', '3.2.9.');
+        hideFieldByLabel('seconddeployment_start_month', '3.2.10.');
+        hideFieldByLabel('seconddeployment_length', '3.2.11.');
+        hideFieldByLabel('seconddeployment_length_unit', '3.2.11.1.');
+
+        toggleSecondDeploymentFields();
+
+    });
+</script>
+
+</h5>
+
+<p class="text-center">
+    <button class="btn-primary">
+        NEXT
+    </button>
+</p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

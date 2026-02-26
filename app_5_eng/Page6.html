@@ -1,0 +1,115 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const toggles = [
+              { buttonId: 'toggle-proposer-btn', contentId: 'instructions-ultimatum-proposer' },
+              { buttonId: 'toggle-receiver-btn', contentId: 'instructions-ultimatum-receiver' }
+          ];
+
+          toggles.forEach(({ buttonId, contentId }) => {
+              const btn = document.getElementById(buttonId);
+              const content = document.getElementById(contentId);
+
+              if (btn && content) {
+                  btn.addEventListener('click', () => {
+                      content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+                  });
+                  // Initialize hidden
+                  content.style.display = 'none';
+              }
+          });
+      });
+    </script>
+</head>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 5/11
+        </p>
+{{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Results First Task</b>
+    </h3>
+<h5>
+    {{ if participant.vars.side_ultimatum == 0}}
+
+    <p>
+In the first task, you offered {{ participant.vars.decision_UG }} tokens to the other person.
+You were matched with someone who declared that they would accept no less than {{ participant.vars.other_UG_decision }} tokens from the other person.
+Thus, according to the instructions of the task, your payoff for the first task is {{ participant.vars.payoff_UG }} tokens.   </p>
+
+        <!-- For Ultimatum Game Instructions -->
+    <button type="button" class="btn btn-outline-primary" id="toggle-proposer-btn">
+      Show/Hide Instructions
+    </button>
+    <div id="instructions-ultimatum-proposer">
+        {{ include C.TEMPLATE_INSTRUCTIONS_ULTIMATUM_PROPOSER }}
+    </div>
+
+
+    {{ elif participant.vars.side_ultimatum == 1}}
+
+    <p>
+In the first task, you said that you would like to receive at least {{ participant.vars.decision_UG }} tokens from the other person.
+You were matched with someone who declared that they would send {{ participant.vars.other_UG_decision }} tokens.
+Thus, according to the instructions of the task, your final payoff for the first task is {{ participant.vars.payoff_UG }} tokens.   </p>
+
+    <!-- For Ultimatum Game Instructions -->
+<button type="button" class="btn btn-outline-primary" id="toggle-receiver-btn">
+  Show/Hide Instructions
+</button>
+<div id="instructions-ultimatum-receiver">
+    {{ include C.TEMPLATE_INSTRUCTIONS_ULTIMATUM_RECEIVER }}
+</div>
+
+
+
+    {{ endif}}
+</h5>
+    <p class="text-center">
+        <button class="btn btn-primary">
+            NEXT
+        </button>
+    </p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

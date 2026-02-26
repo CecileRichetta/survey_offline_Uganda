@@ -1,0 +1,114 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .example-container {
+            margin-bottom: 20px;
+            border: 1px solid #ccc; /* Bordure grise */
+            border-radius: 8px; /* Coins arrondis */
+            padding: 15px; /* Espace entre la bordure et le contenu */
+            /* background-color: #f9f9f9; /* Optionnel: fond légèrement grisé */
+            justify-content: center; /* Align horizontal */
+            align-items: center; /* Align vertical */
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .example-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .example-image {
+            width: 100%;
+            height: auto;
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+{{ endblock }}
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 6/11
+        </p>
+{{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Second task</b>
+    </h3>
+    <h5>
+    <p>
+    {{ include C.TEMPLATE_INSTRUCTIONS_PG }}
+    </p>
+
+    <!-- Example 1 -->
+<div class="example-container row">
+    <div class="example-title">
+        The first example below illustrates the task:</div>
+    <div class="col-md-4">
+        <img src="{{ static C.IMAGE_PG_EXAMPLE1 }}" class="img-fluid example-image">
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h5>
+        In this first example, both the green person and the purple person have four tokens to begin with. The green person decides they want to keep all of their tokens and participate nothing in the common bag. The purple person decides to put two tokens in the common bag. Therefore, there are two tokens in the bag.
+        The experimenter (the grey person) adds half of this amount: they add one token, and there are now three tokens in the bag. This is equally split between the green and purple person, so they each receive 1.5 token.
+        Therefore, at the end the green person has 5.5 tokens and the purple person has 3.5 tokens.    </h5>
+</p>
+    </div>
+</div>
+<br>
+<!-- Example 2 -->
+
+<div class="example-container row">
+    <div class="example-title">The second example below illustrates the task:</div>
+    <div class="col-md-4">
+        <img src="{{ static C.IMAGE_PG_EXAMPLE2 }}" class="img-fluid example-image">
+    </div>
+    <div class="col-md-4">
+        <p>
+            In this second example, both the green person and the purple person have once again four tokens to begin with.
+            They both decide to put all of their tokens in the common bag.
+            Therefore, there are eight tokens in the bag.
+            The experimenter adds half of this amount, so four tokens.
+            There are now 12 tokens in the bag.
+            This is equally split between the green and purple person: they each receive 6 tokens.
+            Thus, at the end they both have six tokens.</p> <br><br>
+    </div>
+</div>
+        <b> Please indicate whether the following statements are true or false:</b>
+            {{ formfields }}
+
+    </p>
+    </h5>
+    <p class="text-center">
+        <button class="btn btn-primary">
+            NEXT
+        </button>
+    </p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

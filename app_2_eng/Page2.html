@@ -1,0 +1,74 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 2/11
+        </p>
+{{ endblock }}
+
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>General information</b>
+    </h3>
+<h5>
+    {{ if participant.vars.group == 0 }}
+        {{ formfield 'group_attachment_1' label="2.10.1. How much do you agree with the following statement: I feel a strong connection to the Acholi people originating from Northern Uganda.(Enumetaror Note: Pse readout options out loud)" }}
+        {{ formfield 'group_attachment_2' label="2.11.1. How much do you agree with the following statement: I often consider myself to be an Acholi from Northern Uganda.(Enumetaror Note: Pse readout options out loud)" }}
+        {{ formfield 'venn_1' label="2.12.1. Which picture best describes your relationship Baganda people originating from Southern Uganda? Below the 'other' stands for Baganda people." }}
+    {{ elif participant.vars.group == 1 }}
+        {{ formfield 'group_attachment_1' label="2.10.2.  How much do you agree with the following statement: I feel a strong connection to the Baganda people originating from Southern Uganda.(Enumetaror Note: Pse readout options out loud)" }}
+        {{ formfield 'group_attachment_2' label="2.11.2.  How much do you agree with the following statement: I often consider myself to Baganda  from Central Uganda (Enumetaror Note: Pse readout options out loud)." }}
+        {{ formfield 'venn_1' label="2.12.2. Which picture best describes your relationship Acholi people originating from Northern Uganda? Below the 'other' stands for Acholi people." }}
+    {{ endif }}
+
+<img src="{{ static C.VENN_ENGLISH }}" class="venn-diagram" alt="Venn diagram">
+
+</h5>
+
+<p class="text-center">
+    <button class="btn-primary">
+        NEXT
+    </button>
+</p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

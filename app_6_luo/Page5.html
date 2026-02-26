@@ -1,0 +1,92 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        document.addEventListener('DOMContentLoaded', (e) => {
+            const instructions = document.getElementById('instructions-pg'),
+                btnToggle = document.getElementById('toggle-instructions-btn');
+
+            let displayed = false;
+
+            const toggling = () => {
+                if (displayed) {
+                    instructions.style.display = 'none';
+                    displayed = false;
+                } else {
+                    instructions.style.display = 'block';
+                    displayed = true;
+                }
+            }
+
+            btnToggle.addEventListener('click', toggling);
+        })
+    </script>
+{{ endblock }}
+
+{{ block styles}}
+    <style>
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        #instructions-pg {
+            display: none;
+            padding: 10px; /* Optional: Add some padding for better readability */
+            color: black; /* Optional: Change text color to black for contrast */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 6/11
+        </p>
+{{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Results of Second Task</b>
+    </h3>
+<h5>
+<p>
+    I tic atima me aryo, yin iketo mic {{ participant.vars.decision_PG }} i kicaa alwak ci igwoko mic {{ player.tokens_kept_w2 }} piri.
+Ngat mukene cani oketo mic {{ participant.vars.other_UG_decision }} i kicaa alwak.
+Dong kit meno, cul mamegi me agiki pi tic atima me aryo tye mic {{ participant.vars.payoff_PG }}.
+</p>
+<p>
+    <button type="button" class="btn btn-outline-primary" id="toggle-instructions-btn">
+        Show / Hide Instructions
+    </button>
+    {{ include C.TEMPLATE_INSTRUCTIONS_PG }}
+</p>
+
+    <p class="text-center">
+        <button class="btn btn-primary">
+            NEXT
+        </button>
+    </p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

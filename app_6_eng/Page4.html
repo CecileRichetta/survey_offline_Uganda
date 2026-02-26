@@ -1,0 +1,109 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        document.addEventListener('DOMContentLoaded', (e) => {
+            const instructions = document.getElementById('instructions-pg'),
+                btnToggle = document.getElementById('toggle-instructions-btn');
+
+            let displayed = false;
+
+            const toggling = () => {
+                if (displayed) {
+                    instructions.style.display = 'none';
+                    displayed = false;
+                } else {
+                    instructions.style.display = 'block';
+                    displayed = true;
+                }
+            }
+
+            btnToggle.addEventListener('click', toggling);
+        })
+    </script>
+{{ endblock }}
+
+{{ block styles}}
+    <style>
+        .progress-text {
+            text-align: right;
+            color: grey;
+            font-size: 11px;
+            width: 100%; /* Ensures the text spans the full width of its container */
+        }
+        #instructions-pg {
+            display: none;
+            padding: 10px; /* Optional: Add some padding for better readability */
+            color: black; /* Optional: Change text color to black for contrast */
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text" >
+            Questionnaire progress: 6/11
+        </p>
+{{ endblock }}
+
+{{ block content }}
+    <h3 class="mb-4 text-center text-primary">
+        <b>Second Task</b>
+    </h3>
+    <h5>
+    <p>
+If you have any questions about this task, please click "Show/Hide Instructions" at the bottom of this page.
+    {{ if participant.vars.treatment_other == 0 }}
+        <p>
+            6.5. How many tokens do you keep and how many do you contribute to the common bag?        </p>
+    {{ elif participant.vars.treatment_other == 1 }}
+        <p>
+           6.5. The other person is a Northerner. How many tokens do you keep and how many do you contribute to the common bag?
+        </p>
+    {{ elif participant.vars.treatment_other == 2 }}
+        <p>
+            6.5. The other person is a Baganda living in Central Uganda. How many tokens do you keep and how many do you contribute to the common bag?   </p>
+    {{ elif participant.vars.treatment_other == 3 }}
+        <p>
+            6.5. The other person is a Northerner and a former combatant, either for the national army or the LRA. How many tokens do you keep and how many do you contribute to the common bag?        </p>
+    {{ elif participant.vars.treatment_other == 4 }}
+        <p>
+            6.5. The other person is a Baganda living in central Uganda and a former combatant, either for the national army or the LRA. How many tokens do you keep and how many do you contribute to the common bag?        </p>
+    {{ endif }}
+
+    {{ formfields }}
+</h5>
+<p>
+    <button type="button" class="btn btn-outline-primary" id="toggle-instructions-btn">
+        Show/Hide Instructions
+    </button>
+    {{ include C.TEMPLATE_INSTRUCTIONS_PG }}
+</p>
+
+    <p class="text-center">
+        <button class="btn btn-primary">
+            NEXT
+        </button>
+    </p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}

@@ -1,0 +1,119 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .progress-text {
+                text-align: right;
+                color: grey;
+                font-size: 11px;
+                width: 100%;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                color: #333;
+                background-color: white;
+            }
+            h1 {
+                text-align: center;
+                color: #2c3e50;
+            }
+            h2 {
+                color: #2980b9;
+            }
+            p {
+                margin: 10px 0;
+                text-align: justify;
+            }
+            .quote {
+                font-style: italic;
+                border-left: 4px solid #2980b9;
+                padding-left: 10px;
+                margin: 15px 0;
+                color: #34495e;
+            }
+            .unhrc-logo {
+                display: block;
+                margin: 0 auto 20px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .report-container {
+                background-color: #F0F0F0;
+                border-radius: 8px;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            .btn-primary {
+                background-color: #0d6efd;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .btn-primary:hover {
+                background-color: #0b5ed7;
+            }
+        </style>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text">
+            Questionnaire progress: 4/11
+        </p>
+{{ endblock }}
+
+
+{{ block content }}
+    <body>
+        <p>
+            <h5>
+Timber ikwan ki diro report macek ki bot dul me United Human Rights Council.                                                                                                                                 </h5>
+            <br><br>
+        </p>
+
+        <div class="report-container">
+            <img src="{{ static C.IMAGE_UNHRC }}" class="unhrc-logo" alt="UNHRC Logo">
+            <h1>United Nations Human Rights Council Report</h1><br>
+            <h2> Gum me kuc ki matoput i Uganda </h2><br>
+            <h5>
+                <p>
+                     Malube ki report ma United Human Rigts Council ocoyo cokcok ni, Dano me Uganda gitye ki gum madit me mato oput ikingi i kumalo me Uganda. Mwaki macokcoki dano ma yang kin gi oket woko ki lweny dong gi tye ka dwogo kacel ki gen ki me neno anyim makwako lwak weng. I boma acel , dul lulweny macon ki lutedero gu obino kacel me gedo gangi bedo ki gangi kwan ma tye kaloko kama yang onong tye macalo bar me apoka poka me dugu kabedo me ribe. Alokoloka man tye ikin alokaloka mapol me bwut lobo man manyutu kit ma kuc dong pe tye gin mabor ento dong tye ka nyute.
+                </p>
+                <p>
+                    Kwed ki leyotam mapat pat moko ni mato oput tye ka nyutu alokaloka mabeco i kom nicango pa lwak ma ikin gang. Lulweny macon  ma nene nongo ki neno gi calo lu cak lweny  kombedi dong ki tye ka donyo i kin gangi pe calo dano ata ento calo jo ma pi gi tek magi tye ka ilo dok tiyo tic matego me dongo boma ma yang onong lweny obalo woko. Ki kony ma aa ki bot dul me wilobo ma neno lok kom kuc, kero me tic man tye ka mede ki miyo caden matir ni kuc marii dong cok oo. Tek mada pe me neno jami mabbeco ma otime i lobo man ki  bene dong tye ka nen kama leng ni dano me Uganda gitwero kelo anyim matye ki kuc kit ma onongo gimito kwede ni.
+                </p>
+                <p class="quote">
+                    Ladit pa UNHCR moko ni, "Uganda tye ki jami ki kero meneno ni kuc obedo tye. Nino ki nino waneno lanyut ni kuc ki mato oput otime ada.”
+                </p>
+                <p>
+                    Mine pa dano ki mede pa kony ma aa ki lobo mawoko, nyutu ni gen pi kuc pe tye boo ento tye adaa madong tye katimo                </p>
+
+    </h5>
+    </div>
+</body>
+    <p>
+        <br><br>
+        <h5>
+          {{ formfields }}
+    </h5>
+
+    </p>
+
+
+<p class="text-center">
+    <button class="btn-primary">
+        NEXT
+    </button>
+</p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}
