@@ -322,9 +322,9 @@ class Page5_2(Page):
     def get_form_fields(player: Player):
         """Only return form fields if the page is displayed"""
         participant = player.participant
-        if participant.side_ultimatum==1:
+        if participant.side_ultimatum == 1:
             return [
-                choice['name'] for choice in C.CHOICES_UG_RECEIVER
+                'decision_receiver'
             ]
         else:
             pass
