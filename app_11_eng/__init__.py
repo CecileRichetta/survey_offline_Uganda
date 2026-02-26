@@ -194,6 +194,10 @@ class Page1_1(Page):
                 'recall_phone2',
                 'recall_phone3'
             ]
+        elif participant.dropout is False and player.session.config['name'] == "session_C4P_ENGLISH_w2":
+            return [
+                'recall_phone1'
+            ]
         else:
             pass
     def before_next_page(player, timeout_happened):
@@ -204,7 +208,7 @@ class Page1_1(Page):
             export_recall(player)
     def is_displayed(player):
         participant = player.participant
-        return not participant.dropout and player.session.config['name'] == "session_C4P_ENGLISH_w1"
+        return not participant.dropout
     def error_message(player, values):
         # Validate recall fields: required if recall_firstwave == True (only in wave 1)
         if 'recall_firstwave' in values and values['recall_firstwave'] == True:
@@ -215,21 +219,7 @@ class Page1_1(Page):
 
 
 class Page1_2(Page):
-    form_model = 'player'
-    @staticmethod
-    def get_form_fields(player):
-        participant = player.participant
-        if participant.dropout is False and player.session.config['name'] == "session_C4P_ENGLISH_w2":
-            return [
-                'recall_phone1'
-            ]
-        else:
-            pass
-    def before_next_page(player, timeout_happened):
-        export_payoffs_headenumerator(player)
-    def is_displayed(player):
-        participant = player.participant
-        return not participant.dropout and player.session.config['name'] == "session_C4P_ENGLISH_w2"
+    pass
 
 class Page2(Page):
     pass

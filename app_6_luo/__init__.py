@@ -15,7 +15,7 @@ class C(BaseConstants):
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
     # GAME ELEMENTS
-    TOKEN_VALUE = 10
+    TOKEN_VALUE = 2500
     TOKEN_ENDOWMENT = 4
     CHOICES_PG = [
         (0, "Agwoko mic 4 ni weng pira"), # I want to keep all my 4 tokens.
@@ -153,7 +153,7 @@ def export_participant_data_append_only(player):
     participant = player.participant
     data_folder = Path("_static/data_internal/for_wave_2")
 
-    if player.session.config['name'] == "session_C4P_THAI_w1":
+    if player.session.config['name'] == "session_C4P_LUO_w1":
         csv_file_path = data_folder / "participant_wave_1.csv"
         data_folder.mkdir(parents=True, exist_ok=True)
 
@@ -199,7 +199,7 @@ def export_games_data_append_only(player):
     participant = player.participant
     data_folder = Path("_static/data_internal/for_wave_2")
 
-    if player.session.config['name'] == "session_C4P_THAI_w1":
+    if player.session.config['name'] == "session_C4P_LUO_w1":
         csv_file_path = data_folder / "games_wave_1.csv"
         data_folder.mkdir(parents=True, exist_ok=True)
 

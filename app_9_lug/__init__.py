@@ -148,12 +148,6 @@ class Player(BasePlayer):
         blank=False,
         widget=widgets.RadioSelect
     )
-    treatment_other_check_g4 = models.IntegerField(
-        label="9.12.2. TRANSLATION",
-        choices=C.OTHER_GROUP,
-        blank=False,
-        widget=widgets.RadioSelect
-    )
     treatment_other_check_g1 = models.IntegerField(
         label="9.12.3. TRANSLATION",
         choices=C.OTHER_GROUP_CONTROL,
@@ -208,11 +202,6 @@ class Page3(Page):
             return [
                 'hope_check',
                 'treatment_other_check_g3'
-            ]
-        elif participant.treatment_other == 4:
-            return [
-                'hope_check',
-                'treatment_other_check_g4'
             ]
         elif participant.treatment_other == 0 and player.session.config['name'] == "session_C4P_LUGANDA_w2":
             return [

@@ -91,7 +91,7 @@ def export_payoffs_headenumerator(player):
     new_row = {
         'participant_label': participant.label,
         'date_interview': timestamp,
-        'participation_number': player.recall_phone1,
+        'participant_number': player.recall_phone1,
         'participation_fee': participant.participation_fee,
         'payoff_games': participant.payoff_games,
         'total_compensation': participant.total_compensation
@@ -194,6 +194,10 @@ class Page1_1(Page):
                 'recall_phone2',
                 'recall_phone3'
             ]
+        elif participant.dropout is False and player.session.config['name'] == "session_C4P_LUO_w2":
+            return [
+                'recall_phone1'
+            ]
         else:
             pass
     def before_next_page(player, timeout_happened):
@@ -204,7 +208,7 @@ class Page1_1(Page):
             export_recall(player)
     def is_displayed(player):
         participant = player.participant
-        return not participant.dropout and player.session.config['name'] == "session_C4P_LUO_w1"
+        return not participant.dropout
     def error_message(player, values):
         # Validate recall fields: required if recall_firstwave == True (only in wave 1)
         if 'recall_firstwave' in values and values['recall_firstwave'] == True:
@@ -215,21 +219,8 @@ class Page1_1(Page):
 
 
 class Page1_2(Page):
-    form_model = 'player'
-    @staticmethod
-    def get_form_fields(player):
-        participant = player.participant
-        if participant.dropout is False and player.session.config['name'] == "session_C4P_LUO_w2":
-            return [
-                'recall_phone1'
-            ]
-        else:
-            pass
-    def before_next_page(player, timeout_happened):
-        export_payoffs_headenumerator(player)
-    def is_displayed(player):
-        participant = player.participant
-        return not participant.dropout and player.session.config['name'] == "session_C4P_LUO_w2"
+    pass
+
 
 class Page2(Page):
     pass

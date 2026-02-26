@@ -133,12 +133,6 @@ class Player(BasePlayer):
         blank=False,
         widget=widgets.RadioSelect
     )
-    treatment_other_check_g4 = models.IntegerField(
-        label="9.12.2. During the activities, you played with a Baganda from Southern Uganda and a former combatant, either from the national army or the LRA. Which side do you think the other person was a combatant on?",
-        choices=C.OTHER_GROUP,
-        blank=False,
-        widget=widgets.RadioSelect
-    )
     treatment_other_check_g1 = models.IntegerField(
         label="9.12.3. During the activities in this survey and the last survey, you interacted with a partner. What is your guess: was this person a Baganda living in Central Uganda or a Northerner?",
         choices=C.OTHER_GROUP_CONTROL,
@@ -193,11 +187,6 @@ class Page3(Page):
             return [
                 'hope_check',
                 'treatment_other_check_g3'
-            ]
-        elif participant.treatment_other == 4:
-            return [
-                'hope_check',
-                'treatment_other_check_g4'
             ]
         elif participant.treatment_other == 0 and player.session.config['name'] == "session_C4P_ENGLISH_w2":
             return [
