@@ -66,7 +66,7 @@ class Player(BasePlayer):
         blank=False
     )
     urban_rural = models.IntegerField(
-        label="Is it an urban or rural setting? ?",
+        label="Is it an urban or rural setting?",
         choices=((0, "Urban"), # urban
                  (1, "Rural")), # rural
         widget=widgets.RadioSelect,
@@ -185,6 +185,7 @@ class Page2(Page):
             return upcoming_apps[-1]
 
 page_sequence = [
+#    Page0,
     Page1, # enumerator identifier
     Page2 # consent form
 ]

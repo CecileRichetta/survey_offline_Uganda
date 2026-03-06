@@ -35,7 +35,7 @@ class Player(BasePlayer):
         blank=False
     )
     recall_firstwave = models.BooleanField(
-        label="12.2. 11.1. Nga bwenakubulidde mu ntandikwa yokubuzibwa, Omusomo gwa bitundutundu bibiri. Tujja kwetaaga "
+        label="12.2. Nga bwenakubulidde mu ntandikwa yokubuzibwa, Omusomo gwa bitundutundu bibiri. Tujja kwetaaga "
               "e namba y'essimu okukubira, era n'erinnya lyo elisooka. Wandiyagadde okwetaba mu kubuzibwa kwomulundi "
               "ogw'okubiri okw'omusomo gunno? ",
         # As mentionned at the beginning of the questionnaire, this is a two-parts study. Would you like to participate in the second wave of this survey?
@@ -205,9 +205,10 @@ class Page1_1(Page):
     def before_next_page(player, timeout_happened):
         phone_1 = player.recall_phone1
         export_payoffs_headenumerator(player)
-        if player.recall_firstwave is True:
-            player.recall_phone1 = phone_1
-            export_recall(player)
+        if player.session.config['name'] == "session_C4P_LUGANDA_w1":
+            if player.recall_firstwave is True:
+                player.recall_phone1 = phone_1
+                export_recall(player)
     def is_displayed(player):
         participant = player.participant
         return not participant.dropout
@@ -221,7 +222,10 @@ class Page1_1(Page):
 
 
 class Page1_2(Page):
-    pass
+    @staticmethod
+    def is_displayed(player):
+        participant = player.participant
+        return not participant.dropout
 
 
 class Page2(Page):

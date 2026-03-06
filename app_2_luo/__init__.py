@@ -53,7 +53,6 @@ class C(BaseConstants):
         (1, "Somewhat religious"),  # Somewhat religious
         (2, "Religious"),  # Religious
         (3, "Very religious"),  # Very religious
-        (997, 'Not applicable'),  # Not applicable
         (999, 'Prefer not to say')  # Prefer not to say
     ]
     INSECURITY = [

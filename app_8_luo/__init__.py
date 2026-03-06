@@ -63,8 +63,7 @@ class Player(BasePlayer):
         blank=False
     )
     social_trust_wallet = models.IntegerField(
-        label="8.2. Keti ni irwenyo purse/wallet ni ma tye ki coc ma tito kama ibedo iye, ci ngat ma bedo cok kama in ibedo iyi ni "
-              "onongo i yoo. Itye ki gen marom mene ni purse/wallet mamegi man kibi dwoko boti labongo gin mo keken murem ki iye?",
+        label="8.2. Keti ni irwenyo money purse onyo wallet ni matye ki coc ma tito kama ibedo iye, ci ngat ma bedo cok ki kabedo ni onongo iyoo. Itye ki gen marom mene ni money purse onyo wallet ni kibi dwoko boti labongo gin mo keken murem ki iye?",
        # Suppose you lost your purse/wallet containing your address details, and it was found in the street by "
         #               "someone living in the neighborhood you last lived in, in your home country. How likely is it that it would "
         #               "be returned to you with nothing missing?
@@ -126,42 +125,42 @@ class Player(BasePlayer):
     )
     # institutional trust
     institutional_trust_1 = models.IntegerField(
-        label="8.11. Timber iwaca rwom mene ma I geno kwede: President",
+        label="8.11. Timber iwaca rwom mene ma I geno kwede dul man: President",
         # The president
         choices=C.TRUST_SCALE,
         widget=widgets.RadioSelect,
         blank=False
     )
     institutional_trust_2 = models.IntegerField(
-        label="8.12. Timber iwaca rwom mene ma I geno kwede: Ot moko cik",
+        label="8.12. Timber iwaca rwom mene ma I geno kwede dul  man: Ot moko cik",
         # The parliament
         choices=C.TRUST_SCALE,
         widget=widgets.RadioSelect,
         blank=False
     )
     institutional_trust_7 = models.IntegerField(
-        label="8.13. Timber iwaca rwom mene ma I geno kwede: Police",
+        label="8.13. Timber iwaca rwom mene ma I geno kwede dul man: Polic/ abili",
        # The Police
         choices=C.TRUST_SCALE,
         widget=widgets.RadioSelect,
         blank=False
     )
     institutional_trust_8 = models.IntegerField(
-        label="8.14. Timber iwaca rwom mene ma I geno kwede: Mony",
+        label="8.14. Timber iwaca rwom mene ma I geno kwede dul man: Mony",
         # The army
         choices=C.TRUST_SCALE,
         widget=widgets.RadioSelect,
         blank=False
     )
     institutional_trust_9 = models.IntegerField(
-        label="8.15. Timber iwaca rwom mene ma I geno kwede dul: Gang koot",
+        label="8.15. Timber iwaca rwom mene ma I geno kwede dul man: Gang koot",
         # The courts of law
         choices=C.TRUST_SCALE,
         widget=widgets.RadioSelect,
         blank=False
     )
     institutional_trust_10 = models.IntegerField(
-        label="8.16. Timber iwaca rwom mene ma I geno kwede: Ker kwaro/ lutela me te kwaro",
+        label="8.16. Timber iwaca rwom mene ma I geno kwede dul  man: Ker kwaro/ lutela me te kwaro",
         # The traditional leaders
         choices=C.TRUST_SCALE,
         widget=widgets.RadioSelect,

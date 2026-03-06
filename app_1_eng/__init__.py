@@ -184,6 +184,7 @@ class Page2(Page):
             return upcoming_apps[-1]
 
 page_sequence = [
+#    Page0,
     Page1, # enumerator identifier
     Page2 # consent form
 ]

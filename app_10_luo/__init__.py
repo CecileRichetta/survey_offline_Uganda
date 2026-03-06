@@ -75,7 +75,7 @@ class Player(BasePlayer):
         blank=False
     )
     eco_status_1 = models.IntegerField(
-        label="10.5. Ikom jami weng, iromo tito kit ma  kwo ni me komkare  tye kwede nining?", # In general, how would you describe your own present living conditions?
+        label="10.5. 2.3. Ijami weng, iromo tito kit ma  kwo ni me komkare  tye kwede?", # In general, how would you describe your own present living conditions?
         widget=widgets.RadioSelect,
         choices=C.ECONOMIC_STATUS_1,
         blank=False

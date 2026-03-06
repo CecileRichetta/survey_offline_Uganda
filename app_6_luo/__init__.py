@@ -18,11 +18,11 @@ class C(BaseConstants):
     TOKEN_VALUE = 2500
     TOKEN_ENDOWMENT = 4
     CHOICES_PG = [
-        (0, "Agwoko mic 4 ni weng pira"), # I want to keep all my 4 tokens.
-        (1, "Agwoko mic 3 pira ci amiyo 1 i kicaa alwak"), # I want to keep 3 tokens and contribute 1 token to the group bag.
-        (2, "Agwoko mic 2 pira ci amiyo 2 i kicaa alwak"), # I want to keep 2 tokens and contribute 2 tokens to the group bag.
-        (3, "Agwoko mic 1 pira ci amiyo 3 i kicaa alwak"), # I want to keep 1 token and contribute 3 tokens to the group bag.
-        (4, "Pe agwoko mic mokeken ci amiyo 4 weng i kicaa alwak") # I want to keep nothing and contribute all 4 tokens to the group bag.
+        (0, "Amito gwoko mic 4 weng"), # I want to keep all my 4 tokens.
+        (1, "Atwero gwoko mic 3 ci amiyo mic 1 I kaca alwak"), # I want to keep 3 tokens and contribute 1 token to the group bag.
+        (2, "Atwero gwoko mic 2 ci amiyo mic 2 I kaca alwak"), # I want to keep 2 tokens and contribute 2 tokens to the group bag.
+        (3, "Atwero gwoko mic 1 ci amiyo mic 3 I kicaa alwak"), # I want to keep 1 token and contribute 3 tokens to the group bag.
+        (4, "Pe agwoko mic mokeken ci amiyo mic 4 weng I kicaa alwak") # I want to keep nothing and contribute all 4 tokens to the group bag.
     ]
     # FILE PATH TREATMENT BALANCE TABLE
     FILE_PATH_TREATMENT = '_static/data_external/treatment_balance.csv'
@@ -66,7 +66,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     pg_cc2 = models.IntegerField(
-        label="6.2. Ngat mukene cani ngeyo wel maron mene ma aketo i kicaa alwak ma pwod en pe omoko tame",
+        label="6.2. Aromo moko tama pe keto mic mokeken iyi kica alwak",
         # Please indicate whether the following statements are true or false: The other person knows how much I put in the common bag before making their decision.
         choices=[
             (0, "True"), # True
@@ -76,7 +76,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     pg_cc3 = models.IntegerField(
-        label="6.3. Ngat mukene cani pe tye ada",
+        label="6.3. Timber inyut ka lok magi tye ada onyo pe: Ngat mukene cani ngeyo wel mic maro mene ma aketo iyi kicaa alwak ma pwod en pe omoko tame.",
         # Please indicate whether the following statements are true or false: The other person is fake.
         choices=[
             (0, "True"), # True
@@ -87,7 +87,7 @@ class Player(BasePlayer):
     )
     pg_correct_answers = models.IntegerField()
     pg_redo_questions = models.BooleanField(
-        label="6.4. Lagam mamegi mukene  i lapeny ma okatoni pe tye kakare. Amito mini kare mukene me winyo dok odoco gin ma omyero ilubi ci igam lapeny. Imito winyo yoo ma mite aluba ci wek igam lapeny dok odoco?",        # Some of your answers in the previous questions were not correct. I want to give you the opportunity to listen
+        label="6.4. Lagam mamegi mukene iyi lapeny mukato ni pe tye kakare. Amito mini kare mukene me winyo dok kicel gin ma omyero ilubi ci igam lapeny. Imito winyo yoo ma mite aluba wek igam lapeny dok kicel? ",        # Some of your answers in the previous questions were not correct. I want to give you the opportunity to listen
         # once more to the full instructions, and answer the questions. Do you want me to listen the instructions and answer once again the questions?
         choices=[
             (True, "Yes"),
@@ -110,17 +110,17 @@ class Player(BasePlayer):
         blank=False
     )
     time_preference_6m = models.StringField(
-        label="6.7. Tam kong ni iromo yero me nongo ciling 100,000 kombedi onyo wel cente mukene inge dwe 6 nicake kombedi. Wel cente marom mene ma mite pi anyim wek obed wel ma munya calo gamo 100,000 kombedini?",
+        label="6.7. Tam kong ni iromo yero me nongo ciling 100,000 cutcut onyo wel cente mukene inge dwe 6 nicake kombedi. Wel ciling marom mene ma mite pi anyim wek obed wel ma munya calo gamo ciling 100,000 cutcut?",
         # Imagine you could choose between receiving 10'00'BAHT immediately, or another amount 6 months from now. How much would the future amount need to be to make it as attractive as receiving $300 immediately?
         blank=False
     )
     time_preference_1y = models.StringField(
-        label="6.8. Tam kong ni iromo yero me nongo ciling100,000 kombedi onyo wel cente mukene inge mwaka 1 nicake kombedi. Wel cente marom mene ma mite pi anyim wek obed wel ma munya calo gamo ciling 100,000 kombedini?",
+        label="6.8. Tam kong ni iromo yero me nongo ciling 100,000 cutcut onyo wel cente mukene inge mwaka acel nicake kombedi. Wel ciling maromene ma mite pi anyim wek obed wel ma munya calo gamo ciling 100,000 cutcut?",
         # Imagine you could choose between receiving $300 immediately, or another amount 1 year from now. How much would the future amount need to be to make it as attractive as receiving $300 immediately?
         blank=False
     )
     time_preference_10y = models.StringField(
-        label="6.9. Tam kong ni iromo yero me nongo ciling 100,000 kombedi onyo wel cente mukene inge mwaka 10 nicake kombedi. Wel ciling marom mene ma mite pi anyim wek obed wel ma munya calo gamo ciling100,000 komedini?",
+        label="6.9. Tam kong ni iromo yero me nongo alip miya acel cente me Uganda cutcut onyo wel cente mukene inge mwaka apar nicake kombedi. Wel cente marom mene ma mite pi anyim wek obed wel ma munya calo gamo alip miya acel cente me Uganda cutcut?",
         # Imagine you could choose between receiving $300 immediately, or another amount 10 years from now. How much would the future amount need to be to make it as attractive as receiving $300 immediately?
         blank=False
     )

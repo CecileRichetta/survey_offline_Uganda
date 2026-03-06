@@ -51,11 +51,11 @@
      {{ if participant.vars.group == 0 }}
         {{ formfield 'group_attachment_1' label="2.10.1. Okiriziganya kyenkana kyi ne sitatimenti zinno wamanga: Mpulira enkwatagana yamaanyi n'abantu b'omu Acholi abasibuka mu mambuka ga Uganda (Enumetaror Note: Pse readout options out loud)" }}
         {{ formfield 'group_attachment_2' label="2.11.1. Okiriziganya kyenkana kyi ne sitetinenti eno wamanga: Newulira bulijjo netwala okubeera omucholi ava mu mambuka ga Uganda. (Enumetaror Note: Pse readout options out loud)" }}
-        {{ formfield 'venn_1' label="2.12.1. TRANSLATION" }}
+        {{ formfield 'venn_1' label="2.12.1. Kifananyi kyi ekisinga okunyonyola enkwataganayo n'abaganda abasibuka mu maserengeta ga Uganda?" }}
     {{ elif participant.vars.group == 1 }}
     {{ formfield 'group_attachment_1' label="2.10.2. Okiriziganya kyenkana kyi ne sitatimenti eno wamanga: Mpulira enkwatagana yamaanyi n'abantu abaganda abasibuka mu maserengeta ga Uganda (Enumetaror Note: Pse readout options out loud)" }}
     {{ formfield 'group_attachment_2' label="2.11.2. Okiriziganya kyenkana kyi ne sitetimenti eno wamanga: Newulielira bulijjo netwala okubeera omuganda ava mu maserengeta ga Uganda (Enumetaror Note: Pse readout options out loud)" }}
-       {{ formfield 'venn_1' label="2.12.2. TRANSLATION" }}
+       {{ formfield 'venn_1' label="2.12.2. Kifananyi kyi ekisinga okunyonyola enkwataganayo n'abacholi abasibuka mu mambuka ga Uganda?" }}
     {{ endif }}
 
     <img src="{{ static C.VENN_LUGANDA }}" class="venn-diagram" alt="Venn diagram">

@@ -203,9 +203,10 @@ class Page1_1(Page):
     def before_next_page(player, timeout_happened):
         phone_1 = player.recall_phone1
         export_payoffs_headenumerator(player)
-        if player.recall_firstwave is True:
-            player.recall_phone1 = phone_1
-            export_recall(player)
+        if player.session.config['name'] == "session_C4P_ENGLISH_w1":
+            if player.recall_firstwave is True:
+                player.recall_phone1 = phone_1
+                export_recall(player)
     def is_displayed(player):
         participant = player.participant
         return not participant.dropout
@@ -219,7 +220,11 @@ class Page1_1(Page):
 
 
 class Page1_2(Page):
-    pass
+    @staticmethod
+    def is_displayed(player):
+        participant = player.participant
+        return not participant.dropout
+
 
 class Page2(Page):
     pass

@@ -4,6 +4,22 @@ doc = """
 Support for peace agreement provisions. 
 """
 
+def treatment_other_check_g0_choices(player):
+    import random
+    shuffled = [
+        (0, 'The person is a Northerner'),
+        (1, 'The person is a Baganda living in Central Uganda'),
+    ]
+    fixed = [(998, "Don't know"), (999, 'Prefer not to say')]
+    random.shuffle(shuffled)
+    return shuffled + fixed
+
+def treatment_other_check_g3_choices(player):
+    import random
+    shuffled = [(0, 'The LRA'), (1, 'The national army')]
+    fixed = [(998, "Don't know"), (999, 'Prefer not to say')]
+    random.shuffle(shuffled)
+    return shuffled + fixed
 
 class C(BaseConstants):
     NAME_IN_URL = 'app_9_ENG'
@@ -22,9 +38,8 @@ class C(BaseConstants):
     ]
     CHOICE_NGO_NAME = [
         (0, "1. GUSCO - an NGO working to promote peaceful solution to the conflict"),
-        (1, "2. Habitat International - an NGO working to improve access to housing for the poor"),
-        (2, "3. World Vision International - an NGO working to help children and vulnerable communities."),
-        (997, "Not applicable")
+        (1, "2. Waiting for Sam"),
+        (2, "3. Waiting for Sam")
     ]
     HOPE_SCALE = [
         (0, "Very hopeless"), # Very hopeless
@@ -34,18 +49,6 @@ class C(BaseConstants):
         (4, "Very hopeful"), # Very hopeful
         (998, "Don't know"), # Don't know
         (999, "Prefer not to say") # Prefer not to say
-    ]
-    OTHER_GROUP = [
-        (0, "The LRA"),
-        (1, "The national army"),
-        (998, "Don't know"),
-        (999, "Prefer not to say")
-    ]
-    OTHER_GROUP_CONTROL = [
-        (0, "Baganda"),
-        (1, "Northerner"),
-        (998, "Don't know"),
-        (999, "Prefer not to say")
     ]
 
 
@@ -113,6 +116,7 @@ class Player(BasePlayer):
     )
     ngo_amount = models.IntegerField(
         label="9.9. If yes, how much?",
+        max=10000,
         blank=True
     )
     ngo_name = models.IntegerField(
@@ -128,14 +132,12 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     treatment_other_check_g3 = models.IntegerField(
-        label="9.12.1. During the activities, you played with a Northerner and a former combatant, either from the national army or the LRA. Which side do you think the other person was a combatant on?",
-        choices=C.OTHER_GROUP,
+        label="9.12.1. During the activities, you played with a Northerner and a former combatant. Which side do you think the other person was a combatant on? (Enumerator Note: Pse read options out loud)",
         blank=False,
         widget=widgets.RadioSelect
     )
-    treatment_other_check_g1 = models.IntegerField(
-        label="9.12.3. During the activities in this survey and the last survey, you interacted with a partner. What is your guess: was this person a Baganda living in Central Uganda or a Northerner?",
-        choices=C.OTHER_GROUP_CONTROL,
+    treatment_other_check_g0 = models.IntegerField(
+        label="9.12.2. During the activities in this survey and the last survey, you interacted with a partner. What is your guess: (Enumerator Note: Pse read options out loud)",
         blank=False,
         widget=widgets.RadioSelect
     )
@@ -183,18 +185,21 @@ class Page3(Page):
     def get_form_fields(player: Player):
         """Only return form fields if the page is displayed"""
         participant = player.participant
-        if participant.treatment_other == 3:
-            return [
-                'hope_check',
-                'treatment_other_check_g3'
-            ]
-        elif participant.treatment_other == 0 and player.session.config['name'] == "session_C4P_ENGLISH_w2":
-            return [
-                'hope_check',
-                'treatment_other_check_g1'
-            ]
-        else:
+        if player.session.config['name'] == "session_C4P_ENGLISH_w1":
             return ['hope_check']
+        elif player.session.config['name'] == "session_C4P_ENGLISH_w2":
+            if participant.treatment_other == 0:
+                return [
+                    'hope_check',
+                    'treatment_other_check_g0'
+                ]
+            elif participant.treatment_other == 3:
+                return [
+                    'hope_check',
+                    'treatment_other_check_g3'
+                ]
+            else:
+                return ['hope_check']
 
 
 page_sequence = [

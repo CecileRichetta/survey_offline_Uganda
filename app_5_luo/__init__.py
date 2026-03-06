@@ -22,11 +22,11 @@ class C(BaseConstants):
         (4, "Adwaro miyo jaoda token 4 kendo ok aket kata achiel kuomwa.")
     ]
     CHOICES_UG_RECEIVER = [
-        (0, "Ne ayie ni ok ayudo gimoro, kendo ng’at machielo norito token 4 duto."),
-        (1, "Ne ayie gi pesa ma ne omiya ka ng’at machielo oorona token 1 kendo ne giketo token 3."),
-        (2, "Ne ayie gi pesa ma ne omiya ka ng’at machielo oorona token 2 kendo ne girito token 2."),
-        (3, "Ne ayie gi pesa ma ne omiya ka ng’at machielo oorona token 3 kendo ne girito token 1."),
-        (4, "Ne ayie gi pesa ma ne omiya ka ng’at machielo oorona token 4 kendo ne ok giketo gimoro.")
+        (0, "Ayee pe abigamo mic mokeken, ci lami mic ogwok mic 4 weng"),
+        (1, "Ayee mic ka lami mic omiya mic 1 ci ogwoko mic 3 pire"),
+        (2, "Ayee mic ka lami mic omiya mic 2 ci ogwoko mic 2 pire"),
+        (3, "Ayee mic ka lami mic omiya mic 3 ci ogwoko 1 pire"),
+        (4, "Ayee mic ka lami mic omiya mic 4 weng")
     ]
     # INSTRUCTIONS TEMPLATES
     TEMPLATE_INSTRUCTIONS_ULTIMATUM_PROPOSER = '_static/texts_LUO/instr_ultimatum_proposer.html'
