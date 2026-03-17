@@ -44,7 +44,7 @@ class C(BaseConstants):
     RELIGION = [
         (0, 'Islam'), # Islam
         (1, 'Christianity'), # Christianity
-        (2, "Indigenous/traditionalist Religion"), # Indigenous/traditionalist Religion
+        (2, "Indigenous/traditionalist religion"), # Indigenous/traditionalist Religion
         (3, "Other"), # Other
         (4, "I don't believe in any"), # I don't believe in any
         (999, 'Prefer not to say') # Prefer not to say
@@ -115,8 +115,8 @@ class Player(BasePlayer):
     )
     age = models.IntegerField(
         label="2.2. Olina emyaka emeka?", # Please indicate how old you are (in years):
-        min=18,
-        max=75,
+        #min=18,
+        #max=75,
         blank=False
     )
     gender = models.IntegerField(
@@ -229,6 +229,8 @@ class Page1(Page):
     def is_displayed(player: Player):
         return player.session.config['name'] == "session_C4P_LUGANDA_w1"
     def error_message(player, values):
+        if values['age']<18 or values['age']>75:
+            return 'Please enter an age between 18 and 75'
         if values['education'] == 9:
             if not values.get('education_other') or str(values['education_other']).strip() == '':
                 return 'Please fill other education field'

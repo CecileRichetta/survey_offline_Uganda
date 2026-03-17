@@ -208,7 +208,16 @@ class Page2(Page):
                 return 'Please indicate how much to give to the NGO'
             if values.get('ngo_name') is None:
                 return 'Please choose an NGO to give to'
-
+        raw = str(values.get('ngo_amount', '') or '').replace(',', '').replace(' ', '').replace("'",'')
+        if raw == '':
+            return  # let oTree's blank=False handle the empty case
+        try:
+            num = int(raw)
+            if num % 100 != 0:
+                return '9.9. Please enter a multiple of 100 (e.g. 100, 200, 300...)'
+        except ValueError:
+            return 'Please enter a valid whole number.'
+        
 class Page3(Page):
     form_model = 'player'
     @staticmethod

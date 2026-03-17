@@ -550,6 +550,7 @@ class Page2_1(Page):
             if not values.get('military_province_main_other') or str(values['military_province_main_other']).strip() == '':
                 return 'Please fill 3.2.3.1.'
         if values['deployment_second'] == 1:
+            participant = player.participant
             if values.get('military_province_second') is None:
                 return 'Please fill 3.2.8.'
             if values['military_province_second'] == 11 and (
@@ -564,6 +565,20 @@ class Page2_1(Page):
                 return 'Please fill 3.2.11.'
             if values.get('seconddeployment_length_unit') is None:
                 return 'Please fill unit of 3.2.11.'
+            if values['maindeployment_start_year'] < (2026 - participant.age) and (
+                    values['maindeployment_start_year'] != 998 and values['maindeployment_start_year'] != 999):
+                return 'Start year (3.2.4.) greater than respondent birth year'
+            if values['seconddeployment_start_year'] < (2026 - participant.age) and (
+                    values['seconddeployment_start_year'] != 998 and values['seconddeployment_start_year'] != 999):
+                return 'Start year (3.2.9.) greater than respondent birth year'
+            if values['military_province_second'] == values['military_province_main']:
+                return '3.2.8. Same region selected as in 3.2.3.'
+            if values['lra_length'] > participant.age and values['lra_length_unit'] == 4:
+                return '3.2.2. Length greater than respondent age'
+            if values['maindeployment_length'] > participant.age and values['maindeployment_length_unit'] == 4:
+                return '3.2.6. Length greater than respondent age'
+            if values['seconddeployment_length'] > participant.age and values['seconddeployment_length_unit'] == 4:
+                return '3.2.11. Length greater than respondent age'
     def before_next_page(player, timeout_happened):
         participant = player.participant
         if participant.military_binary==1 & player.lra_conscription==1 :
@@ -603,6 +618,7 @@ class Page2_2(Page):
         participant = player.participant
         return participant.military_binary != 1 and player.session.config['name'] == "session_C4P_LUO_w1"
     def error_message(player, values):
+        participant = player.participant
         if values['noncombatant_geography_main'] == 11:
             if not values.get('noncombatant_geography_main_other') or str(values['noncombatant_geography_main_other']).strip() == '':
                 return 'Please fill 3.3.3.1.'
@@ -621,6 +637,20 @@ class Page2_2(Page):
                 return 'Please fill 3.3.10.'
             if values.get('noncombatant_geography_second_end_month') is None:
                 return 'Please fill unit of 3.3.11.'
+            if values['noncombatant_geography_main_start_year']<(2026-participant.age) and (values['noncombatant_geography_main_start_year']!=998 and values['noncombatant_geography_main_start_year']!=999):
+                return 'Start year (3.3.2.) greater than respondent birth year'
+            if values['noncombatant_geography_main_end_year']<(2026-participant.age) and (values['noncombatant_geography_main_end_year']!=998 and values['noncombatant_geography_main_end_year']!=999):
+                return 'End year (3.3.4.) greater than respondent birth year'
+            if values['noncombatant_geography_main_start_year']>values['noncombatant_geography_main_end_year'] and (values['noncombatant_geography_main_end_year']!=998 or values['noncombatant_geography_main_end_year']!=999):
+                return 'Start year (3.3.2.) greater than (3.3.4.) end year'
+            if values['noncombatant_geography_second_start_year']<(2026-participant.age):
+                return 'Start year (3.3.8.) greater than respondent birth year'
+            if values['noncombatant_geography_second_end_year']<(2026-participant.age):
+                return 'Start year (3.3.10.) greater than respondent birth year'
+            if values['noncombatant_geography_second_start_year']>values['noncombatant_geography_second_end_year']:
+                return 'Start year (3.3.8.) greater than (3.3.10.) end year'
+            if values['noncombatant_geography_second'] == values['noncombatant_geography_main']:
+                return '3.3.7. Same region selected as in 3.3.1.'
 
 class Page3(Page):
     form_model = 'player'

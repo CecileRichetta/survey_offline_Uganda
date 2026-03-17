@@ -44,29 +44,29 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     enumerator = models.StringField(
-        label="Enumerator:", # enter your enumerator identifier
+        label="1.1. Enumerator:", # enter your enumerator identifier
         choices=C.ENUMERATORS,
         blank=False
     )
     district = models.StringField(
-        label="What is the district?", #
+        label="1.2. What is the district?", #
         choices=C.DISTRICTS,
         blank=False
     )
     subcounty = models.StringField(
-        label="What is the subcounty?", #
+        label="1.3. What is the subcounty?", #
         blank=False
     )
     parish = models.StringField(
-        label="What is the parish?",
+        label="1.4. What is the parish?",
         blank=False
     )
     village = models.StringField(
-        label="What is the village?",
+        label="1.5. What is the village?",
         blank=False
     )
     urban_rural = models.IntegerField(
-        label="Is it an urban or rural setting?",
+        label="1.6. Is it an urban or rural setting?",
         choices=((0, "Urban"), # urban
                  (1, "Rural")), # rural
         widget=widgets.RadioSelect,
@@ -75,7 +75,7 @@ class Player(BasePlayer):
     timestamp = models.StringField()
     consent = models.BooleanField(choices=[[True, 'Yes'],
                                            [False, 'No']],
-                                  label='Okiriza okwetaba mu musomo gunno?',
+                                  label='1.7. Okiriza okwetaba mu musomo gunno?',
                                   widget=widgets.RadioSelect)
     p_label = models.StringField()
 
@@ -140,7 +140,7 @@ class Page2(Page):
                 text_content = "Text file not found."
 
             return dict(
-                text_content=text_content
+                text_content = text_content.replace('ENUMERATOR_NAME', player.enumerator)
             )
         else:
             if label.startswith("AN"):
@@ -161,7 +161,7 @@ class Page2(Page):
                 text_content = "Text file not found."
 
             return dict(
-                text_content=text_content
+                text_content = text_content.replace('ENUMERATOR_NAME', player.enumerator)
             )
     def before_next_page(player: Player, timeout_happened):
         current_datetime = datetime.now()
@@ -185,7 +185,7 @@ class Page2(Page):
             return upcoming_apps[-1]
 
 page_sequence = [
-#    Page0,
+    Page0,
     Page1, # enumerator identifier
     Page2 # consent form
 ]

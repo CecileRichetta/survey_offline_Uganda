@@ -348,7 +348,33 @@ class Page6(Page):  # risk aversion
         'time_preference_1y',
         'time_preference_10y'
     ]
-
+    @staticmethod
+    def error_message(player, values):
+        # Validate amount
+        raw_6m = str(values.get('time_preference_6m', '') or '').replace(',', '').replace(' ', '').replace("'", '')
+        if raw_6m != '':
+            try:
+                num = int(raw_6m)
+                if num % 100 != 0:
+                    return '6.6. Please enter a multiple of 100 (e.g. 100, 500, 1000...)'
+            except ValueError:
+                return 'Please enter a valid whole number.'
+        raw_1y = str(values.get('time_preference_1y', '') or '').replace(',', '').replace(' ', '').replace("'", '')
+        if raw_1y != '':
+            try:
+                num = int(raw_1y)
+                if num % 100 != 0:
+                    return 'Please enter a multiple of 100 (e.g. 100, 500, 1000...)'
+            except ValueError:
+                return '6.7. Please enter a valid whole number.'
+        raw_10y = str(values.get('time_preference_1y', '') or '').replace(',', '').replace(' ', '').replace("'", '')
+        if raw_10y != '':
+            try:
+                num = int(raw_10y)
+                if num % 100 != 0:
+                    return 'Please enter a multiple of 100 (e.g. 100, 500, 1000...)'
+            except ValueError:
+                return '6.8. Please enter a valid whole number.'
 
 page_sequence = [
     Page1, # instructions

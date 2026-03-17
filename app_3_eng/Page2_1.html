@@ -124,8 +124,39 @@
                 });
             }
         }
+        
+        function togglemainprovinceother() {
+            var mprovinceOtherContainer = document.querySelector('[data-conditional-field="military_province_main_other"]');
+            if (!mprovinceOtherContainer) return;
+
+            function update() {
+                var sel = document.querySelector('select[name="military_province_main"]');
+                mprovinceOtherContainer.style.display = (sel && sel.value === '11') ? '' : 'none';
+            }
+
+            update();
+
+            var sel = document.querySelector('select[name="military_province_main"]');
+            if (sel) sel.addEventListener('change', update);
+        }
+
+        function togglesecondprovinceOther() {
+            var sprovinceOtherContainer = document.querySelector('[data-conditional-field="military_province_second_other"]');
+            if (!sprovinceOtherContainer) return;
+
+            function update() {
+                var sel = document.querySelector('select[name="military_province_second"]');
+                sprovinceOtherContainer.style.display = (sel && sel.value === '11') ? '' : 'none';
+            }
+
+            update();
+
+            var sel = document.querySelector('select[name="military_province_second"]');
+            if (sel) sel.addEventListener('change', update);
+        }
 
         // Hide fields first, then set up toggles
+        hideFieldByLabel('military_province_main_other', '3.2.3.1.')
         hideFieldByLabel('military_province_second', '3.2.8.');
         hideFieldByLabel('military_province_second_other', '3.2.8.1.');
         hideFieldByLabel('seconddeployment_start_year', '3.2.9.');
@@ -133,7 +164,10 @@
         hideFieldByLabel('seconddeployment_length', '3.2.11.');
         hideFieldByLabel('seconddeployment_length_unit', '3.2.11.1.');
 
+        togglemainprovinceother();
+        togglesecondprovinceOther();
         toggleSecondDeploymentFields();
+
 
     });
 </script>

@@ -1,4 +1,5 @@
 from otree.api import *
+import re
 import csv
 import os
 import shutil
@@ -217,7 +218,21 @@ class Page1_1(Page):
                 return 'Please indicate a family phone number or "999" if the respondent refuses'
             if not values.get('recall_phone3') or values['recall_phone3'].strip() == '':
                 return 'Please indicate a neighbor phone number or "999" if the respondent refuses'
-
+        phone_1 = str(values.get('recall_phone1', '') or '').strip()
+        if phone_1 != '999' and phone_1 != '':
+            pattern = r'^\+2567\d{8}$'
+            if not re.match(pattern, phone_1):
+                return '12.1. Please enter a valid phone number in the format +256700000000'
+        phone_2 = str(values.get('recall_phone2', '') or '').strip()
+        if phone_2 != '999' and phone_2!='':
+            pattern = r'^\+2567\d{8}$'
+            if not re.match(pattern, phone_2):
+                return '12.3. Please enter a valid phone number in the format +256700000000'
+        phone_3 = str(values.get('recall_phone3', '') or '').strip()
+        if phone_3 != '999' and phone_3!='':
+            pattern = r'^\+2567\d{8}$'
+            if not re.match(pattern, phone_3):
+                return '12.4. Please enter a valid phone number in the format +256700000000'
 
 class Page1_2(Page):
     @staticmethod

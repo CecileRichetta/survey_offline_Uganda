@@ -101,6 +101,16 @@ class Page1(Page):
     @staticmethod
     def is_displayed(player: Player):
         return player.session.config['name'] == "session_C4P_ENGLISH_w1"
+    def error_message(player, values):
+        raw = str(values.get('eco_status_2', '') or '').replace(',', '').replace(' ', '').replace("'",'')
+        if raw == '':
+            return  # let oTree's blank=False handle the empty case
+        try:
+            num = int(raw)
+            if num % 100 != 0:
+                return '10.6. Please enter a multiple of 100 (e.g. 100, 200, 300...)'
+        except ValueError:
+            return 'Please enter a valid whole number.'
 
 page_sequence = [
     Page1 # socio-demographics
