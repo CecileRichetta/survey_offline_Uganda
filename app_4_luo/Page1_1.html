@@ -1,0 +1,115 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .progress-text {
+                text-align: right;
+                color: grey;
+                font-size: 11px;
+                width: 100%;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                color: #333;
+                background-color: white;
+            }
+            h1 {
+                text-align: center;
+                color: #2c3e50;
+            }
+            h2 {
+                color: #2980b9;
+            }
+            p {
+                margin: 10px 0;
+                text-align: justify;
+            }
+            .quote {
+                font-style: italic;
+                border-left: 4px solid #2980b9;
+                padding-left: 10px;
+                margin: 15px 0;
+                color: #34495e;
+            }
+            .unhrc-logo {
+                display: block;
+                margin: 0 auto 20px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .report-container {
+                background-color: #F0F0F0;
+                border-radius: 8px;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            .btn-primary {
+                background-color: #0d6efd;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .btn-primary:hover {
+                background-color: #0b5ed7;
+            }
+        </style>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text">
+            Questionnaire progress: 4/11
+        </p>
+{{ endblock }}
+
+
+{{ block content }}
+    <body>
+        <p>
+            <h5>
+Please read the summary of the report from the United Nations Human Rights Council carefully.            </h5>
+            <br><br>
+        </p>
+
+        <div class="report-container">
+            <h2>Gum pi kuc ki mato oput I Uganda: </h2><br>
+            <h5>
+                <p>
+                    Dul pa Lukwed madongo I rwom me wilobo kacel ki Ludiro I ngec makwako lweny I kin kaki ma patpat malupe ki lweny I Kumalo me Uganda .
+Gi gumoko ni jami me mato oput madong tye katime I Uganda tye ka konyo ribo lulweny macon I kin gangi ki tye ka konyo me yubu kabedo ma lweny man ogudu. Dong Pi meno , gi tye gi gen ki tek cwiny ni kuc mari I Kumalo me Uganda obi bedo matwal.
+
+
+
+                </p>
+
+    </h5>
+    </div>
+</body>
+    <p>
+        <br><br>
+        <h5>
+          {{ formfields }}
+    </h5>
+
+    </p>
+
+
+<p class="text-center">
+    <button class="btn-primary">
+        NEXT
+    </button>
+</p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}
+
+

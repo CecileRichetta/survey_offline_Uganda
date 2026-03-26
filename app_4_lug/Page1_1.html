@@ -1,0 +1,117 @@
+{{ block scripts }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .progress-text {
+                text-align: right;
+                color: grey;
+                font-size: 11px;
+                width: 100%;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                color: #333;
+                background-color: white;
+            }
+            h1 {
+                text-align: center;
+                color: #2c3e50;
+            }
+            h2 {
+                color: #2980b9;
+            }
+            p {
+                margin: 10px 0;
+                text-align: justify;
+            }
+            .quote {
+                font-style: italic;
+                border-left: 4px solid #2980b9;
+                padding-left: 10px;
+                margin: 15px 0;
+                color: #34495e;
+            }
+            .unhrc-logo {
+                display: block;
+                margin: 0 auto 20px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .report-container {
+                background-color: #F0F0F0;
+                border-radius: 8px;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            .btn-primary {
+                background-color: #0d6efd;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .btn-primary:hover {
+                background-color: #0b5ed7;
+            }
+        </style>
+{{ endblock }}
+
+{{ block title }}
+        <p class="progress-text">
+            Questionnaire progress: 4/11
+        </p>
+{{ endblock }}
+
+
+{{ block content }}
+    <body>
+        <p>
+            <h5>
+Please read the summary of the report from the United Nations Human Rights Council carefully.            </h5>
+            <br><br>
+        </p>
+
+        <div class="report-container">
+            <h2>Emikisa gy’Emirembe n’Okutabaganya mu Uganda:</h2><br>
+            <h5>
+                <p>
+
+Ekibiina ky’abanoonyereza ku mutendera gw’ensi yonna, nga kirimu abanoonyereza n’abakugu ku ntalo eziva ku bw’enjawulo bw’amawanga, kyekenneenya embeera ez’enjawulo ku biseera eby’omu maaso eby’entalo mu Bukiika Bwa Uganda.
+
+Bamaliriza nti kaweefube w’okutabaganya ng’oguli mu Uganda guyamba abalwanyi abaali mu ntalo okuddayo okwegatta mu bitundu byabwe era bayambeko mu kuddamu okuzimba ebitundu ebyakosebwa ennyo olw’entalo.
+
+N’olwekyo, balina essuubi nti olw’amaanyi g’emirimu gino, emirembe egy’olubeerera mu Bukiika Bwa Uganda esoboka.
+
+                </p>
+
+    </h5>
+    </div>
+</body>
+    <p>
+        <br><br>
+        <h5>
+          {{ formfields }}
+    </h5>
+
+    </p>
+
+
+<p class="text-center">
+    <button class="btn-primary">
+        NEXT
+    </button>
+</p>
+{{ endblock }}
+
+{{ block options }}
+</html>
+{{ endblock }}
+
+
