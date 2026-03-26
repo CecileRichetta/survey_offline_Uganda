@@ -11,6 +11,39 @@ Elements
 
 """
 
+def district_choices(player):
+    participant = player.participant
+    label = participant.label or ""
+    if label.startswith("AN"):
+        return [
+            ("Gulu District"),
+            ("Gulu City"),
+            ("Nwoya"),
+            ("Amuru"),
+            ("Kitgum"),
+            ("Lamwo"),
+            ("Omoro"),
+        ]
+    elif label.startswith("NAN"):
+        return [
+            ('Gulu District'),
+            ('Mityana'),
+        ]
+    elif label.startswith("NAS"):
+        return [
+            ("Mityana"),
+        ]
+    else:
+        return [
+            ("Gulu District"),
+            ("Gulu City"),
+            ("Nwoya"),
+            ("Amuru"),
+            ("Kitgum"),
+            ("Lamwo"),
+            ("Omoro"),
+            ('Mityana')
+        ]
 
 class C(BaseConstants):
     NAME_IN_URL = 'module_1_LUO'
@@ -28,12 +61,6 @@ class C(BaseConstants):
         "Gum Samuel",
         "Guma Ninah"
     ]
-    DISTRICTS = [
-        "Mityana",
-        "Gulu",
-        "Kitgum"
-    ]
-
 class Subsession(BaseSubsession):
     pass
 
@@ -50,7 +77,6 @@ class Player(BasePlayer):
     )
     district = models.StringField(
         label="1.2. What is the district?", #
-        choices=C.DISTRICTS,
         blank=False
     )
     subcounty = models.StringField(
@@ -110,6 +136,21 @@ class Page1(Page):
         'village',
         'urban_rural'
     ]
+    @staticmethod
+    def error_message(player, values):
+        # Validate name field
+        raw_name_subcounty = str(values.get('subcounty', '') or '').strip()
+        if raw_name_subcounty != '':
+            if not raw_name_subcounty.replace(' ', '').isalpha():
+                return 'Subcounty: Please enter alphabetical characters only (no numbers or special characters).'
+        raw_name_parish = str(values.get('parish', '') or '').strip()
+        if raw_name_parish != '':
+            if not raw_name_parish.replace(' ', '').isalpha():
+                return 'Parish: Please enter alphabetical characters only (no numbers or special characters).'
+        raw_name_village = str(values.get('village', '') or '').strip()
+        if raw_name_village != '':
+            if not raw_name_village.replace(' ', '').isalpha():
+                return 'Village: Please enter alphabetical characters only (no numbers or special characters).'
 
 class Page2(Page):
     form_model = 'player'

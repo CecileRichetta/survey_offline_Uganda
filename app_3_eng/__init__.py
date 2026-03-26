@@ -621,6 +621,18 @@ class Page2_2(Page):
         if values['noncombatant_geography_main'] == 11:
             if not values.get('noncombatant_geography_main_other') or str(values['noncombatant_geography_main_other']).strip() == '':
                 return 'Please fill 3.3.3.1.'
+        if values['noncombatant_geography_main_start_year'] < (2026 - participant.age) and (
+                values['noncombatant_geography_main_start_year'] != 998 and values[
+            'noncombatant_geography_main_start_year'] != 999):
+            return 'Start year (3.3.2.) greater than respondent birth year'
+        if values['noncombatant_geography_main_end_year'] < (2026 - participant.age) and (
+                values['noncombatant_geography_main_end_year'] != 998 and values[
+            'noncombatant_geography_main_end_year'] != 999):
+            return 'End year (3.3.4.) greater than respondent birth year'
+        if values['noncombatant_geography_main_start_year'] > values['noncombatant_geography_main_end_year'] and (
+                values['noncombatant_geography_main_end_year'] != 998 and values[
+            'noncombatant_geography_main_end_year'] != 999):
+            return 'Start year (3.3.2.) greater than (3.3.4.) end year'
         if values['noncombatant_geography_second_b'] == 1:
             if values.get('noncombatant_geography_second') is None:
                 return 'Please fill 3.3.7.'
@@ -636,12 +648,6 @@ class Page2_2(Page):
                 return 'Please fill 3.3.10.'
             if values.get('noncombatant_geography_second_end_month') is None:
                 return 'Please fill unit of 3.3.11.'
-            if values['noncombatant_geography_main_start_year']<(2026-participant.age) and (values['noncombatant_geography_main_start_year']!=998 and values['noncombatant_geography_main_start_year']!=999):
-                return 'Start year (3.3.2.) greater than respondent birth year'
-            if values['noncombatant_geography_main_end_year']<(2026-participant.age) and (values['noncombatant_geography_main_end_year']!=998 and values['noncombatant_geography_main_end_year']!=999):
-                return 'End year (3.3.4.) greater than respondent birth year'
-            if values['noncombatant_geography_main_start_year']>values['noncombatant_geography_main_end_year'] and (values['noncombatant_geography_main_end_year']!=998 and values['noncombatant_geography_main_end_year']!=999):
-                return 'Start year (3.3.2.) greater than (3.3.4.) end year'
             if values['noncombatant_geography_second_start_year']<(2026-participant.age):
                 return 'Start year (3.3.8.) greater than respondent birth year'
             if values['noncombatant_geography_second_end_year']<(2026-participant.age):

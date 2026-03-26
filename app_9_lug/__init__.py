@@ -7,17 +7,17 @@ Support for peace agreement provisions.
 def treatment_other_check_g0_choices(player):
     import random
     shuffled = [
-        (0, 'The person is a Northerner'),
-        (1, 'The person is a Baganda living in Central Uganda'),
+        (0, 'Omuntu oyo wa mu bukiika kkono'),
+        (1, 'Omuntu oyo Muganda abeera mu Uganda eya wakati'),
     ]
-    fixed = [(998, "Don't know"), (999, 'Prefer not to say')]
+    fixed = [(998, "Simanyi"), (999, 'Ssaagala kwogera')]
     random.shuffle(shuffled)
     return shuffled + fixed
 
 def treatment_other_check_g3_choices(player):
     import random
-    shuffled = [(0, 'The LRA'), (1, 'The national army')]
-    fixed = [(998, "Don't know"), (999, 'Prefer not to say')]
+    shuffled = [(0, 'Ekibiina kya LRA '), (1, 'Eggye ly’eggwanga')]
+    fixed = [(998, "Simanyi"), (999, 'Ssaagala kwogera')]
     random.shuffle(shuffled)
     return shuffled + fixed
 
@@ -38,10 +38,11 @@ class C(BaseConstants):
         (999, "Prefer not to say")  # Prefer not to say
     ]
     CHOICE_NGO_NAME = [
-        (0, "1. GUSCO - an NGO working to promote peaceful solution to the conflict"),
-        (1, "2. Waiting for Sam"),
-        (2, "3. Waiting for Sam")
+        (0, "1. GUSCO - Ekitongole ekitakabanira okumalawo obukubagano mu mambuka"),
+        (1, "2. War Child – ekitongole ekitali kya gavumenti (NGO) ekikola okulwanyisa n’okukuuma obulamu obulungi bw’abaana abakoseddwa entalo mu Bukiika Kkono bwa Uganda"),
+        (2, "3. World Vision – ekitongole ky’ensi yonna eky’Ekikristaayo ekikola okulwanyisa n’okukuuma obulamu obulungi bw’abaana abakoseddwa entalo mu Bukiika Kkono bwa Uganda")
     ]
+
     HOPE_SCALE_EN = [
         (0, "Very hopeless"),  # Very hopeless
         (1, "Hopeless"),  # Hopeless
@@ -160,13 +161,13 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     treatment_other_check_g3 = models.IntegerField(
-        label="9.12.1. TRANSLATION",
+        label="9.12.1. Ikare me tukku man, in I tuku ki dano ma aa ki I Kumalo m,e lobo Uganda dok bene obedo lalweny macon. Tung kwenen ma itamoni dano meno obedo iyee? (Enumerator Note: Pse read options)",
         choices=C.OTHER_GROUP,
         blank=False,
         widget=widgets.RadioSelect
     )
     treatment_other_check_g1 = models.IntegerField(
-        label="9.12.3. TRANSLATION",
+        label="9.12.2. Ikare me tukku man iwangi don’t I tukku ma Okatoni, ituku ki lawoti moo. Itamini lawoti man anga?: (Enumerator Note: Pse read options out loud)",
         choices=C.OTHER_GROUP_CONTROL,
         blank=False,
         widget=widgets.RadioSelect

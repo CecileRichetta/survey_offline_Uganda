@@ -20,10 +20,10 @@ class C(BaseConstants):
         (0, 'No schooling'),  # No schooling
         (1, 'Some primary school'),  # Some primary school
         (2, 'Completed primary school'),  # Completed primary school
-        (3, 'Some Secondary _O Level'),  # Some Secondary_O Level
-        (4, "Completed Secondary _O level"),  # Completed Secondary O-level
-        (5, "Some secondary _A Level"),  # Some secondary _A Level
-        (6, 'Completed Secondary _A level'),  # Completted Secondary A-level
+        (3, 'Some Secondary O Level'),  # Some Secondary_O Level
+        (4, "Completed Secondary O level"),  # Completed Secondary O-level
+        (5, "Some secondary A Level"),  # Some secondary _A Level
+        (6, 'Completed Secondary A level'),  # Completted Secondary A-level
         (7, "Some Tertiary"),  # Some Tertairy
         (8, 'Completed Tertiary'),  # Completed tertiary
         (9, 'Other'),  # Other
@@ -228,6 +228,10 @@ class Page1(Page):
     def is_displayed(player: Player):
         return player.session.config['name'] == "session_C4P_ENGLISH_w1"
     def error_message(player, values):
+        raw_name = str(values.get('recall', '') or '').strip()
+        if raw_name != '':
+            if not raw_name.replace(' ', '').isalpha():
+                return 'Name: Please enter alphabetical characters only (no numbers or special characters).'
         if values['age']<18 or values['age']>75:
             return 'Please enter an age between 18 and 75'
         if values['education'] == 9:

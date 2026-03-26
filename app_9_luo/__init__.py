@@ -7,17 +7,17 @@ Support for peace agreement provisions.
 def treatment_other_check_g0_choices(player):
     import random
     shuffled = [
-        (0, 'The person is a Northerner'),
-        (1, 'The person is a Baganda living in Central Uganda'),
+        (0, 'Dano man tye lakumalo me uganda'),
+        (1, 'Dano man tye laloka makwo I dyere me uganda'),
     ]
-    fixed = [(998, "Don't know"), (999, 'Prefer not to say')]
+    fixed = [(998, "Pe angeyo"), (999, 'Ayero pe me lok')]
     random.shuffle(shuffled)
     return shuffled + fixed
 
 def treatment_other_check_g3_choices(player):
     import random
-    shuffled = [(0, 'The LRA'), (1, 'The national army')]
-    fixed = [(998, "Don't know"), (999, 'Prefer not to say')]
+    shuffled = [(0, 'Mony pa LRA'), (1, 'Mony pa gamente')]
+    fixed = [(998, "Pe angeyo"), (999, 'Ayero pe me lok')]
     random.shuffle(shuffled)
     return shuffled + fixed
 
@@ -39,8 +39,8 @@ class C(BaseConstants):
     ]
     CHOICE_NGO_NAME = [
         (0, "1. GUSCO - an NGO working to promote peaceful solution to the conflict"),
-        (1, "2. Waiting for Sam"),
-        (2, "3. Waiting for Sam")
+        (1, "2. War Child - an NGO working to protect and support the wellbeing of children affected by conflict in Northern Uganda"),
+        (2, "3. World Vision - a global Christian organisation working to protect and support the wellbeing of children affected by conflict in Northern Uganda")
     ]
     HOPE_SCALE_EN = [
         (0, "Very hopeless"), # Very hopeless
@@ -161,12 +161,12 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     treatment_other_check_g3 = models.IntegerField(
-        label="9.12.1. TRANSLATION",
+        label="9.12.1. Mu mirimu gye mwakola, wazannye n’omuntu ow’e Mambuka n’eyali omulwanyi mu lutalo. Olowooza nti omuntu oyo yali mulwanyi ku ludda ki? (Enumerator Note: Pse read options out loud)",
         blank=False,
         widget=widgets.RadioSelect
     )
     treatment_other_check_g0 = models.IntegerField(
-        label="9.12.3. TRANSLATION",
+        label="9.12.2. Mu mirimu gy’okunoonyereza kuno ne mu kunoonyereza okwasooka, wakolagana n’omuntu gwe mwali mukolagana naye. Olowooza ki ku muntu oyo? (Enumerator Note: Pse read options out loud)",
         blank=False,
         widget=widgets.RadioSelect
     )

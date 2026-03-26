@@ -371,7 +371,7 @@ class Page6(Page):  # risk aversion
                     return 'Please enter a multiple of 100 (e.g. 100, 500, 1000...)'
             except ValueError:
                 return '6.7. Please enter a valid whole number.'
-        raw_10y = str(values.get('time_preference_1y', '') or '').replace(',', '').replace(' ', '').replace("'", '')
+        raw_10y = str(values.get('time_preference_10y', '') or '').replace(',', '').replace(' ', '').replace("'", '')
         if raw_10y != '':
             try:
                 num = int(raw_10y)

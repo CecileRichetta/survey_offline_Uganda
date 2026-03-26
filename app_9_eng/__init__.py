@@ -37,9 +37,9 @@ class C(BaseConstants):
         (999, "Prefer not to say") # Prefer not to say
     ]
     CHOICE_NGO_NAME = [
-        (0, "1. GUSCO - an NGO working to promote peaceful solution to the conflict"),
-        (1, "2. Waiting for Sam"),
-        (2, "3. Waiting for Sam")
+        (0, "1. GUSCO - an NGO working to promote peaceful solution to the conflict in Northern Uganda"),
+        (1, "2. War Child - an NGO working to protect and support the wellbeing of children affected by conflict in Northern Uganda"),
+        (2, "3. World Vision - a global Christian organisation working to protect and support the wellbeing of children affected by conflict in Northern Uganda")
     ]
     HOPE_SCALE = [
         (0, "Very hopeless"), # Very hopeless

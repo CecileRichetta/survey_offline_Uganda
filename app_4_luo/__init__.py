@@ -29,7 +29,8 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     text_check = models.IntegerField(
-        label="4.1. WAITING FOR TRANSLATION",
+        label="4.1. Lukwan nyo lukwed maggi dong gumoko look ma lube is dwoggo pa kuc I Kumalo me lobo Uganda?"
+              "",
         # For the enumerator: did you the person read the text autonomously?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelect,
