@@ -53,12 +53,30 @@ class C(BaseConstants):
     # CONSTANTS
     TOKEN_ENDOWMENT = 4
     ENUMERATORS = [
-        "Semirembe Godfrey",
-        "Tusiime Timothy",
-        "Komakech David",
+        "Collins Bitamba",
+        "Muyunga Eria",
+        "Namuwulya Susan",
+        "Tumiise Timothy",
+        "Ssemirembe Godffrey",
+        "Nantume Sarah",
+        "Grace Lamwaka Obitra",
+        "Nina Guma",
+        "Okot Steiner",
+        "Aya Charles",
+        "David Komakech",
+        "Vento Oyella",
         "Abwot Sandra",
-        "Gum Samuel",
-        "Guma Ninah"
+        "Aol Dominique",
+        "Opiro Bismarck",
+        "Tanya Moses",
+        "Atimango Irene",
+        "Okello Mathem",
+        "Ayeerwot Tracy",
+        "Wilfred Odongpiny",
+        "Daphine Adong",
+        "Isaac Okello",
+        "Otim Brian",
+        "Okello Jimmy"
     ]
 
 class Subsession(BaseSubsession):

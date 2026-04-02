@@ -94,7 +94,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     # MILITARY SERVICE
     military_binary = models.IntegerField(
-        label="3.1. Manaka tika ibedo I lweny mony pa LRA in ki komi?",
+        label="3.1. Tika manaka ibedo I lweny mony pa LRA in ki komi?",
         # Have you ever been directly involved in the LRA Bush conflict?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelect,
@@ -109,7 +109,7 @@ class Player(BasePlayer):
         blank=False
     )
     lra_length = models.IntegerField(
-        label="3.2.2. Pi kare ma rom mene ma ibedo ilum ki adwii pa LRA? (If respondent prefers not to say, enter '999')",
+        label="3.2.2. Pi kare ma rom mene ma ibedo ilum ki LRA? ( mwaka adi)",
         # For how long were you involved in the bush with the LRA? (in years)
         min=0,
         blank=False
@@ -158,14 +158,14 @@ class Player(BasePlayer):
         blank=False
     )
     deployment_second = models.IntegerField(
-        label="3.2.7. Tika ibedo i kabedo mukene mapat ikare ma onongo itye bot LRA?",
+        label="3.2.7. Tika ibedo ikabedo mukene mapat ibut lobo mukene ki LRA?",
         # Were you deployed in any other province?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelect,
         blank=False
     )
     military_province_second = models.IntegerField(
-        label="3.2.8. Kabedo mukene mene ma ibedo iye ikare ma itye bot mony pa LRA? (yer kama pol kare ibedo iye mapat ki kabedo ma lakwongi)",
+        label="3.2.8. Kabedo mukene mene ma ibedo iye ikare ma itye bot LRA?( yer kama pol kare ibedo iye mapat ki kabedo ma mukwongo ni)",
         # If yes, in which province were you deployed?
         choices=C.SUBREGION_UGANDA,
         blank=True
@@ -203,15 +203,15 @@ class Player(BasePlayer):
         blank=True
     )
     military_socialization_1 = models.IntegerField(
-        label="3.2.12. I kare ma ibedo i LRA, pi rwom ma rom mene ma onongo mite tutwale me woro loc?",
+        label="3.2.12. I kare ma ibedo i LRA ,rwom ma rom mene ma onongo mite tutwale me woro loc? (Enumetaror Note: Pse readout options out loud)",
         # During your service, how much emphasis was placed on respect for authority?
         choices=C.SCALE_EMPHASIS,
         widget = widgets.RadioSelect,
         blank=False
     )
     military_socialization_2 = models.IntegerField(
-        label="3.2.13. I kare ma ibedo i LRA, rwom marom mene ma onongo giketo calo gin mapire tek me niang gin maracu me "
-              "lobo man ite kare eno ni, labole calo UPDF?",
+        label="3.2.13. I kare ma ibedo i LRA,rwom marom mene ma onongo kitero kwede gin mapire tek me niang gin bura ma "
+              "time i lobo man ite kare eno ni? , labole lweny ki mony pa gamente/ UPDF? (Enumetaror Note: Pse readout options out loud)",
         # During your service, how much emphasis was placed on understand the domestic security threats of the time?
         choices=C.SCALE_EMPHASIS,
         widget = widgets.RadioSelect,
@@ -226,7 +226,7 @@ class Player(BasePlayer):
     )
     # QUESTIONS NON-MILITARY
     noncombatant_geography_main = models.IntegerField(
-        label="3.3.1. Ikine me mwaka ma kinywali kwede ki 2025, pole imaro bedo kwene?",
+        label="3.3.1. Ikine me mwaka ma kinywali kwede ki kombedi, pole imaro bedo kwene?",
         # 3.2.1. Between 'the year you were born' and 2025, in which subregion did you primarily reside?
         choices= C.SUBREGION_UGANDA,
         blank=False
@@ -266,14 +266,14 @@ class Player(BasePlayer):
         blank=False
     )
     noncombatant_geography_second_b = models.IntegerField(
-        label="3.3.6. Ikine me mwaka ma kinwyali kwede ki 2025, tika ibedo kabedo  kamukene mapat?",
+        label="3.3.6. Ikine me mwaka ma kinwyali kwede ki kombedi, tika ibedo kabedo mukene mapat?",
         # During that period, did you also live in another province?
         choices= C.BINARY_ANSWER,
         widget=widgets.RadioSelect,
         blank=False
     )
     noncombatant_geography_second = models.IntegerField(
-        label="3.3.7. Kace otime, kabedo mene mukene ma ikwo iye bene? (Yer kama pole kare ibedo iye , mapat ki kabedo ma lakwongi)",
+        label="3.3.7. Kace otime, kabedo mene mukene ma ikwo iye bene? ( Yer kama pol kare ibedo iye , mapat ki kabedo mukwongo ni)",
         # If yes, in which province did you also reside?
         choices= C.SUBREGION_UGANDA,
         blank=True
@@ -314,133 +314,133 @@ class Player(BasePlayer):
     )
     # QUESTIONS EXPOSURE TO VIOLENCE
     etv_bi_1 = models.IntegerField(
-        label="3.4. Manaka tika dul pa mony calo LRA, UPDF onyo dul pa lulweny mukene gu omwonyi?",
+        label="3.4. Tika manaka dul pa mony calo LRA, UPDF onyo dul pa lulweny mukene gu mwonyi?",
         # … were you ever ambushed by combatants of the conflict or forced to hide during the confrontation?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelectHorizontal,
         blank=False
     )
     etv_sc_1 = models.IntegerField(
-        label="3.5. Kace ada, tyen adi?",
+        label="3.5. Kace ada, pi kare ma rom mene?",
         # If yes, how often?
         choices=C.SCALE_ETV,
         widget=widgets.RadioSelectHorizontal,
         blank=True
     )
     etv_bi_2 = models.IntegerField(
-        label="3.6. Manaka tika dul pa mony calo LRA, UPDF onyo lulweny mukene gu buru kwo ni?",
+        label="3.6. Tika manaka dul pa mony calo LRA, UPDF onyo lulweny mukene gu buru kwo ni?",
         # … were you ever threatened by combatants of the conflict?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelectHorizontal,
         blank=False
     )
     etv_sc_2 = models.IntegerField(
-        label="3.7. Kace ada, tyen adi?",
+        label="3.7. Kace ada, pi kare ma rom mene?",
         # If yes, how often?
         choices=C.SCALE_ETV,
         widget=widgets.RadioSelectHorizontal,
         blank=True
     )
     etv_bi_3 = models.IntegerField(
-        label="3.8. Tye nino mo keken manaka ma ibedo peke ki cam onyo kabedo?",
+        label="3.8. Tika manaka ibedo labongo cam ki kabedo?",
         # … were you left without food or shelter?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelectHorizontal,
         blank=False
     )
     etv_sc_3 = models.IntegerField(
-        label="3.9. Kace ada, tyen adi?",
+        label="3.9. Kace ada, pi kare ma rom mene?",
         # If yes, how often?
         choices=C.SCALE_ETV,
         widget=widgets.RadioSelectHorizontal,
         blank=True
     )
     etv_bi_5_1 = models.IntegerField(
-        label="3.10. Manaka tika inongo aun, gojo onyo ret me kom ki bot dul pa lulweny calo LRA, UPDF ki lulweny mukene?",
+        label="3.10. Tika manaka inongo aun, gojo onyo ret me kom ki bot dul pa lulweny calo LRA, UPDF ki lulweny mukene?",
         # … were you ever physically injured, subject to beating(s) to the body, or tortured by combatants of the conflict?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelectHorizontal,
         blank=False
     )
     etv_sc_5_1 = models.IntegerField(
-        label="3.11. Kace ada, tyen adi?",
+        label="3.11. Kace ada, pi kare ma rom mene?",
         # If yes, how often?
         choices=C.SCALE_ETV,
         widget=widgets.RadioSelectHorizontal,
         blank=True
     )
     etv_bi_5_2 = models.IntegerField(
-        label="3.12. Manaka tika inongo aun, gojo onyo ret me kom ki bot Komanda pa LRA, onyo la memba pa LRA mukene?",
+        label="3.12. Tika manaka inongo aun, gojo onyo ret me kom ki bot ladit pa LRA mo keken, onyo la memba pa LRA mukene?",
         # … were you ever physically injured, subject to beating(s) to the body, or tortured by your superiors or other abudctees (LRA)?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelectHorizontal,
         blank=False
     )
     etv_sc_5_2 = models.IntegerField(
-        label="3.13. Kace ada, tyen adi?",
+        label="3.13. Kace ada, pi kare ma rom mene?",
         # If yes, how often?
         choices=C.SCALE_ETV,
         widget=widgets.RadioSelectHorizontal,
         blank=True
     )
     etv_bi_6 = models.IntegerField(
-        label="3.14. Manaka tika ineno onyo ikato ki te kare me mwoc pa bom?",
+        label="3.14. Tika manaka ineno onyo ikato ki te kare me mwoc pa bom onyo guruned?",
         # …have you ever witnessed or experienced a bombing?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelectHorizontal,
         blank=False
     )
     etv_sc_6 = models.IntegerField(
-        label="3.15. Kace ada, tyen adi?",
+        label="3.15. Kace ada, pi kare ma rom mene?",
         # If yes, how often?
         choices=C.SCALE_ETV,
         widget=widgets.RadioSelectHorizontal,
         blank=True
     )
     etv_bi_7 = models.IntegerField(
-        label="3.16. Manak tika ineno jemo?",
+        label="3.16. Tika manaka ineno jemo?",
         # … have you ever witnessed or experienced a riot?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelectHorizontal,
         blank=False
     )
     etv_sc_7 = models.IntegerField(
-        label="3.17. Kace ada, tyen adi?",
+        label="3.17. Kace ada, pi kare ma rom mene?",
         # If yes, how often?
         choices=C.SCALE_ETV,
         widget=widgets.RadioSelectHorizontal,
         blank=True
     )
     etv_bi_8 = models.IntegerField(
-        label="3.18. Manaka tika ineno nek atyee ikin dano onyo cel atyee",
+        label="3.18. Tika manaka ineno nek alibu onyo cel atyee?",
         # … have you ever witnessed or experienced a shooting?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelectHorizontal,
         blank=False
     )
     etv_sc_8 = models.IntegerField(
-        label="3.19. Kace ada, tyen adi?",
+        label="3.19. Kace ada, pi kare ma rom mene?",
         # If yes, how often?
         choices=C.SCALE_ETV,
         widget=widgets.RadioSelectHorizontal,
         blank=True
     )
     etv_bi_9 = models.IntegerField(
-        label="3.20. Manaka tika ineno lweny ma kityo ki dege?",
+        label="3.20. Tika manaka ineno lweny ma kitiyo ki dege?	",
         # … have you ever witnessed or experienced an aerial strike?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelectHorizontal,
         blank=False
     )
     etv_sc_9 = models.IntegerField(
-        label="3.21. Kace ada, tyen adi?",
+        label="3.21. Kace ada, pi kare ma rom mene?",
         # If yes, how often?
         choices=C.SCALE_ETV,
         widget=widgets.RadioSelectHorizontal,
         blank=True
     )
     etv_bi_10 = models.IntegerField(
-        label="3.22. Manaka tika iringo mony I kam?",
+        label="3.22. Tika manaka iringo mony I kam?",
         # … have you ever been internally displaced?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelectHorizontal,

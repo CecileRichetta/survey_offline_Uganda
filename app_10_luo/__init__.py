@@ -47,14 +47,14 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     # SOCIO-DEM VARIABLES
     asset_1 = models.IntegerField(
-        label="10.1. Iromo weko angeyo ka i tye ki magi: Pikipiki matiyo",
+        label="10.1. Itye ki jami man I gangi: Pikipiki matiyo ",
         # Do you have the following at home: motorcycle
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelect,
         blank=False
     )
     asset_2 = models.IntegerField(
-        label="10.2. Iromo weko angeyo ka i tye ki magi: Lela matiyo",
+        label="10.2. Itye ki jami man I gangi: Lela matiyo",
         # Do you have the following at home: bicycle
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelect,
@@ -75,7 +75,7 @@ class Player(BasePlayer):
         blank=False
     )
     eco_status_1 = models.IntegerField(
-        label="10.5. 2.3. Ijami weng, iromo tito kit ma  kwo ni me komkare  tye kwede?", # In general, how would you describe your own present living conditions?
+        label="10.5. Ka ineno jami weng, iromo tito kit ma kwo ni me komkare tye kwede?", # In general, how would you describe your own present living conditions?
         widget=widgets.RadioSelect,
         choices=C.ECONOMIC_STATUS_1,
         blank=False

@@ -50,11 +50,11 @@
 <h5>
         {{ if participant.vars.military_binary == 1 }}
         <p>
-          Tamo ikare mukato angec ki LRA
+          Tam ikare mukato angec ki LRA
         </p>
     {{ elif participant.vars.military_binary == 0 }}
         <p>
-           Me tamo ikare ma kinywali kwede angech ki 2025
+           Me tamo ikare ma kinywali kwede angec ki 2025
         </p>
 
     {{ endif }}
@@ -83,7 +83,7 @@
     function hideFrequencyByLabel(frequencyName) {
         var labels = document.querySelectorAll('label');
         labels.forEach(function(label) {
-            if (label.textContent.indexOf('Kace ada, tyen adi') !== -1) {
+            if (label.textContent.indexOf('Kace ada, pi') !== -1) {
                 var container = label.closest('div, tr');
                 if (container && container.querySelector('input[name="' + frequencyName + '"]')) {
                     container.style.display = 'none';

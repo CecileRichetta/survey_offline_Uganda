@@ -48,15 +48,19 @@
         <b>General information</b>
     </h3>
 <h5>
+    <p>
+        Wacak ki lapeny me yeyo ma cego cego:
+    </p>
+
      {{ if participant.vars.group == 0 }}
     {{ formfield 'group_attachment_1' label="2.10.1. I rwom ma rom mene ma iyee kwede ikom lok man: Awinyo atye ki cwiny me kube matek ikom Acholi magi aa ki tung kumalo me Uganda." }}
     {{ formfield 'group_attachment_2' label="2.11.1. I rwom ma rom mene ma iye kwede ikom lok man: Pol kare atere calo an Acholi ma aa ki tung kumalo me Uganda." }}
-        {{ formfield 'venn_1' label="2.12.1. Cal mene manyutu maber kupeni ki luloka ma gin tye I dyere me Uganda kun gi aa ki ii kupoto ceng me Uganda? Piny tye kacungu 'mukkene' pi luloka ma aa ki I dyere me Uganda." }}
+        {{ formfield 'venn_1' label="2.12.1. 2.12.1. Cal mene manyutu maber kube ni ki luloka ma gin tye I dyere me Uganda kun gi aa ki i kupiny me Uganda? Piny tye lok ni 'mukene' cung pi luloka." }}
 
     {{ elif participant.vars.group == 1 }}
     {{ formfield 'group_attachment_1' label="2.10.2. I rwom ma rom mene ma iye kwede ikom lok man: Awinyo atye ki cwiny me kube matek ikom luloka  magi aa ki tung ku piny me Uganda." }}
     {{ formfield 'group_attachment_2' label="2.11.2. Irwom ma rom mene ma iye kwede ikom lok man: Pol kare atere calo an Laloka ma aa ki tung idyere me Uganda." }}
-       {{ formfield 'venn_1' label="2.12.2. Cal mene manyutu maber kupeni ki Acholi ma aa ki I kumalo Uganda? Piny tye kacungu 'mukkene' pi Acholi." }}
+       {{ formfield 'venn_1' label="2.12.2. Cal mene manyutu maber kube ni ki Acholi ma aa ki I kumalo me Uganda? Piny tye lok ni 'mukene' cung pi Acholi." }}
     {{ endif }}
 
 

@@ -38,9 +38,9 @@ class C(BaseConstants):
         (999, "Prefer not to say") # Prefer not to say
     ]
     CHOICE_NGO_NAME = [
-        (0, "1. GUSCO - an NGO working to promote peaceful solution to the conflict"),
-        (1, "2. War Child - an NGO working to protect and support the wellbeing of children affected by conflict in Northern Uganda"),
-        (2, "3. World Vision - a global Christian organisation working to protect and support the wellbeing of children affected by conflict in Northern Uganda")
+        (0, "1. GUSCO - dul ma neno lok me cobo lweny itung kumalo me uganda"),
+        (1, "2. War Child - dul ma pe jenge ikom gamente matiyo me gwoko ki konyo ber bedo pa lutino ma lweny eni ogudu kom gi ikumalo me Uganda"),
+        (2, "3. World Vision - dul pa ludini me wilobo matiyo me gwoko ki neno ber bedo pa lutino ma lweny eni ogudu kom gi i kumalo me Uganda")
     ]
     HOPE_SCALE_EN = [
         (0, "Very hopeless"), # Very hopeless
@@ -104,7 +104,7 @@ class Player(BasePlayer):
         blank=False
     )
     justice_provision_4 = models.IntegerField(
-        label="9.4. Madok i kom lweny, timber iwaca rwom mene ma icwako kwede tic man: Ribo wat i kin  opojicon (jo ma gin pe yer i kom tam)",
+        label="9.4. Madok ikom lweny, timber iwaca rwom mene ma icwako kwede tic man: Ribo wat ikin jo ma gin pe yer ikom tam acel/ jo ma tye ka tele ikin gi.",
         # Regarding the conflict, please tell me how much do you support the following initiative: Reconciliation between both sides
         choices=C.CHOICE_PEACE_SUPPORT,
         widget=widgets.RadioSelect,
@@ -161,12 +161,12 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     treatment_other_check_g3 = models.IntegerField(
-        label="9.12.1. Mu mirimu gye mwakola, wazannye n’omuntu ow’e Mambuka n’eyali omulwanyi mu lutalo. Olowooza nti omuntu oyo yali mulwanyi ku ludda ki? (Enumerator Note: Pse read options out loud)",
+        label="9.12.1. Ikare me tuku man, in I tuku ki dano ma aa ki I Kumalo me Uganda dok bene obedo lalweny macon. Tung kwene ma itamo ni dano meno obedo iyee? (Enumerator Note: Pse read options)",
         blank=False,
         widget=widgets.RadioSelect
     )
     treatment_other_check_g0 = models.IntegerField(
-        label="9.12.2. Mu mirimu gy’okunoonyereza kuno ne mu kunoonyereza okwasooka, wakolagana n’omuntu gwe mwali mukolagana naye. Olowooza ki ku muntu oyo? (Enumerator Note: Pse read options out loud)",
+        label="9.12.2.  Ikare me tuku ma megi in ituku ki ngat mo. Itamo ni eno ni anga?: (Enumerator Note: Pse read options out loud)",
         blank=False,
         widget=widgets.RadioSelect
     )

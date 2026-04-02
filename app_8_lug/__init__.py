@@ -204,10 +204,10 @@ class Page4(Page):
     form_fields = [
         'institutional_trust_2',
         'institutional_trust_7',
-        'institutional_trust_1',
         'institutional_trust_8',
         'institutional_trust_9',
-        'institutional_trust_10'
+        'institutional_trust_10',
+        'institutional_trust_1'
     ]
 
 page_sequence = [

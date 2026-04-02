@@ -29,16 +29,14 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     text_check = models.IntegerField(
-        label="4.1. Lukwan nyo lukwed maggi dong gumoko look ma lube is dwoggo pa kuc I Kumalo me lobo Uganda?"
-              "",
+        label="4.1. Lukwed magi dong gumoko lok ma lube ki dwogo pa kuc I Kumalo me Uganda?",
         # For the enumerator: did you the person read the text autonomously?
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelect,
         blank=False
     )
     hope_recall = models.IntegerField(
-        label="4.2. Manaka tika ibedo ki gen ni mato oput ikin lulweny macon ki dano me kin gang ikit man mekelo kuc "
-              "ikumalo ni obi nyako nyige? Timber ikwany kare man me lwodo ikom lok man.",
+        label="4.2. Tika manaka ibedo ki gen ni ribe (mato oput) ikin lulweny macon ki dano me kin gang ikit man mekelo kuc ikumalo ni obi nyako nyige? Timber ikwany kare man me lwodo lok man.",
         # Have you ever felt hopeful that the social reconciliation between former fighters and local communities, in the context of the peace process in the North, will be successful? Please take a moment to reflect on this.
         choices=C.BINARY_ANSWER,
         widget=widgets.RadioSelect,

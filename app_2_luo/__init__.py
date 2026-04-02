@@ -135,8 +135,8 @@ class Player(BasePlayer):
         blank=True
     )
     dependents_salary = models.IntegerField(
-        label="2.5. Dano adi mabedo idog keno ni? Kit man, nongo watye ka waco dano magi kwo kacel idog ot acel ki bene gi "
-              "moko tam kacel. Timber pe ikwan welle, dano mabedo pi tutunu ento kwan in kekeni",
+        label="2.5. Dano adi mabedo idog keno mamegi? Ka kiwaco ni dog keno, nongo watye ka waco dano magi kwo kacel idog "
+              "ot acel ki bene gi moko tam kacel. Timber pe imed wele mo keken onyo dano matye kabedo pi tutunu.",
         # How many people live in your household? + definition household
         choices=C.DEPENDENTS_SALARY,
         widget=widgets.RadioSelect,
@@ -155,7 +155,7 @@ class Player(BasePlayer):
         blank=True
     )
     insecurity = models.IntegerField(
-        label="2.8. Ikine me mwaka mukatoni, pi kare marom mene, kace otime,ma in onyo dano mo keken me dog keno ni pe owinyo agonya pien ber bedo in gangi onyo kabedo ma orumo in pe tye maber?",
+        label="2.8. Ikine me mwaka mukatoni, pi kare marom mene, kace otime,ma in onyo dano mo keken me dog keno ni pe owinyo agonya pien ber bedo igangi onyo kabedo ma orumo in pe tye maber?",
         # Over the past year, how often, if ever, have you or anyone in your family felt unsafe in your home or neighborhood?
         choices=C.INSECURITY,
         widget=widgets.RadioSelect,

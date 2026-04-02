@@ -30,7 +30,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    recall_phone1 = models.StringField(
+    payment_phone = models.StringField(
         label="12.1. For the payment of the compensation received from the survey and the activities, we will send you mobile money. On which phone number can we send you the money?",
         # phone number for payment
         blank=False
@@ -45,13 +45,18 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         blank=False
     )
+    recall_phone1 = models.StringField(
+        label="12.3. If yes, could you please give me your phone number so we can recontact you?",
+        # phone number household
+        blank=True
+    )
     recall_phone2 = models.StringField(
-        label="12.3. If yes, could you please give me the phone number of someone in your household so we can recontact you in case your phone won't be on?",
+        label="12.4. If yes, could you please give me the phone number of someone in your household so we can recontact you in case your phone won't be on?",
         # phone number household
         blank=True
     )
     recall_phone3 = models.StringField(
-        label="12.4. If yes, could you please give me the phone number of a neighbour so we can recontact you in case your phone won't be on?",
+        label="12.5. If yes, could you please give me the phone number of a neighbour so we can recontact you in case your phone won't be on?",
         # phone number neighbor
         blank=True
     )
@@ -92,7 +97,7 @@ def export_payoffs_headenumerator(player):
     new_row = {
         'participant_label': participant.label,
         'date_interview': timestamp,
-        'participant_number': player.recall_phone1,
+        'participant_number': player.payment_phone,
         'participation_fee': participant.participation_fee,
         'payoff_games': participant.payoff_games,
         'total_compensation': participant.total_compensation
@@ -118,7 +123,7 @@ def export_payoffs_headenumerator(player):
         os.replace(temp_file, csv_file_path)
 
         # Si tout va bien, effacer les données
-        player.recall_phone1 = "Anonymous"
+        player.payment_phone = "Anonymous"
 
     except Exception as e:
         if temp_file.exists():
@@ -190,23 +195,22 @@ class Page1_1(Page):
         participant = player.participant
         if participant.dropout is False and player.session.config['name'] == "session_C4P_ENGLISH_w1":
             return [
-                'recall_phone1',
+                'payment_phone',
                 'recall_firstwave',
+                'recall_phone1',
                 'recall_phone2',
                 'recall_phone3'
             ]
         elif participant.dropout is False and player.session.config['name'] == "session_C4P_ENGLISH_w2":
             return [
-                'recall_phone1'
+                'payment_phone'
             ]
         else:
             pass
     def before_next_page(player, timeout_happened):
-        phone_1 = player.recall_phone1
         export_payoffs_headenumerator(player)
         if player.session.config['name'] == "session_C4P_ENGLISH_w1":
             if player.recall_firstwave is True:
-                player.recall_phone1 = phone_1
                 export_recall(player)
     def is_displayed(player):
         participant = player.participant
@@ -218,21 +222,26 @@ class Page1_1(Page):
                 return 'Please indicate a family phone number or "999" if the respondent refuses'
             if not values.get('recall_phone3') or values['recall_phone3'].strip() == '':
                 return 'Please indicate a neighbor phone number or "999" if the respondent refuses'
+        payment_1 = str(values.get('payment_phone', '') or '').strip()
+        if payment_1 != '999' and payment_1 != '':
+            pattern = r'^\+2567\d{8}$'
+            if not re.match(pattern, payment_1):
+                return '12.1. Please enter a valid phone number in the format +256700000000'
         phone_1 = str(values.get('recall_phone1', '') or '').strip()
         if phone_1 != '999' and phone_1 != '':
             pattern = r'^\+2567\d{8}$'
             if not re.match(pattern, phone_1):
-                return '12.1. Please enter a valid phone number in the format +256700000000'
+                return '12.3. Please enter a valid phone number in the format +256700000000'
         phone_2 = str(values.get('recall_phone2', '') or '').strip()
         if phone_2 != '999' and phone_2!='':
             pattern = r'^\+2567\d{8}$'
             if not re.match(pattern, phone_2):
-                return '12.3. Please enter a valid phone number in the format +256700000000'
+                return '12.4. Please enter a valid phone number in the format +256700000000'
         phone_3 = str(values.get('recall_phone3', '') or '').strip()
         if phone_3 != '999' and phone_3!='':
             pattern = r'^\+2567\d{8}$'
             if not re.match(pattern, phone_3):
-                return '12.4. Please enter a valid phone number in the format +256700000000'
+                return '12.5. Please enter a valid phone number in the format +256700000000'
 
 
 class Page1_2(Page):

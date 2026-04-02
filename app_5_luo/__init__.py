@@ -15,7 +15,7 @@ class C(BaseConstants):
     TOKEN_VALUE = 2500
     TOKEN_ENDOWMENT = 4
     CHOICES_UG_PROPOSER = [
-        (0, "Ok abi miyo jaoda token moro amora, to abiro kano 4 duto ne an awuon."),
+        (0, "Pe abi miyo mic moo keken."),
         (1, "Adwaro miyo jaoda token 1 kendo aketo 3 ne an awuon."),
         (2, "Adwaro miyo jaoda token 2 kendo aketo 2 ne an awuon."),
         (3, "Adwaro miyo jaoda token 3 kendo aketo 1 ne an awuon."),
@@ -94,7 +94,7 @@ class Player(BasePlayer):
     )
     # RESPONDER COMPREHENSION CHECKS
     ug_receiver_cc1 = models.IntegerField(
-        label="5.2.1. Lami mic peke ki tam mo ma rom mokone kono do me cwalo bota mic",
+        label="5.2.1. Lami mic peke ki kero me moko tam mo ma pat ki mina mic",
         # The proposer has no choice but to send me tokens.
         choices=[
             (0, "True"), # True
@@ -104,7 +104,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     ug_receiver_cc2 = models.IntegerField(
-        label="5.2.2. Kace mic ma an amitoni tidi loyo ngo ma lami mic miyo, an anongo mic",
+        label="5.2.2. Kace mic ma an amito ni tidi loyo ngo ma lami mic miyo, an anongo mic",
         # If the minimum of tokens that I want is smaller than what the proposer offers, I get the tokens.
         choices=[
             (0, "True"), # True

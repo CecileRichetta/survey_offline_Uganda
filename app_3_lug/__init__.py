@@ -135,7 +135,7 @@ class Player(BasePlayer):
         choices=[
             [999, "Prefer not to say"],
             [998, "Don't know"],
-            *[[y, str(y)] for y in range(1950, 2025)]
+            *[[y, str(y)] for y in range(1950, 2026)]
         ],
         blank=True
     )
@@ -224,7 +224,7 @@ class Player(BasePlayer):
     )
     # QUESTIONS NON-MILITARY
     noncombatant_geography_main = models.IntegerField(
-        label="3.3.1. Wakakati omwaka gwe wazaalibwamu ne 2025, kitundu kyi kyewabeera ngamu?",
+        label="3.3.1. Wakakati omwaka abuzibwa gweyazalibwa ne kati, kitundu kyi kyosinze okubeera ngamu? ",
         # 3.2.1. Between 'the year you were born' and 2025, in which subregion did you primarily reside?
         choices= C.SUBREGION_UGANDA,
         blank=False
@@ -264,7 +264,7 @@ class Player(BasePlayer):
         blank=False
     )
     noncombatant_geography_second_b = models.IntegerField(
-        label="3.3.6. Wakati omwaka gwe wazaalibwamu ne 2025 wabeerako mu kitundu ekirala kyonna?",
+        label="3.3.6. Wakati omwaka abuzibwa mweyazalibaw ne kati wabeerako mu kitundu ekirala kyonna? ",
         # During that period, did you also live in another province?
         choices= C.BINARY_ANSWER,
         widget=widgets.RadioSelect,
